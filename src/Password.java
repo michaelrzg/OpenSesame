@@ -33,7 +33,7 @@ public class Password {
             index = Math.round((float) Math.random()*8+1);
 
             encryptedPass += index + Integer.toHexString( ((int) originalPass.charAt(j) ) ^ index )+"-";
-            //converts into a line of 3 digits; adds a '-' symbol between each set of 3
+            //converts into a line of 3 digits for each char by using hexStrings; adds a '-' symbol between each set of 3
             System.out.println("[debug in Passowrd line 36] current epass text is " + encryptedPass);
         }
         return encryptedPass.substring(0, encryptedPass.lastIndexOf("-"));
