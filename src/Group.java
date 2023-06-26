@@ -24,7 +24,7 @@ public class Group {
     }
 
     public void addUserToGroup(User methodCaller, User personToBeAdded) throws NotLeaderException
-    {   System.out.println("[debug] addUserToGroup");
+    {   System.out.println("[debug in group line 27] addUserToGroup");
         if(methodCaller == leader && groupIsOpen)
         {
             members.add(personToBeAdded);
@@ -38,7 +38,7 @@ public class Group {
         {
             members.remove(personToBeRemoved);
             memberCount = members.size();
-            System.out.println("[debug] removeUserToGroup");
+            System.out.println("[debug in group line 41] removeUserToGroup");
         }
         else throw new NotLeaderException("Error: Users can only be added by the Group leader");
     }

@@ -5,6 +5,7 @@ public class User {
     private String signUpDate;
     public int friendCount;
     public int userID;
+    public boolean activeUser;
 
 
 
@@ -13,7 +14,7 @@ public class User {
         this.username = username;
        // this.accountPass = encrypt(accountPass)
         this.userID = userID;
-
+        activeUser=true;
 
     }
 
