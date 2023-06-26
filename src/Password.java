@@ -4,7 +4,7 @@ public class Password {
     private String encryptedPass;
     private int encryptMethodID;
 
-    //PASSWORDS CAN NOT INCLUDE '#' or '&' symbols in sequence.
+    //PASSWORDS CAN NOT INCLUDE '#' ',' or '&' symbols in sequence.
     Password(String originalPass)
     {   Random rand = new Random();
         encryptMethodID = rand.nextInt(3);

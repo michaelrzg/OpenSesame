@@ -5,9 +5,10 @@ public class Group {
     private String encryptedGroupPass;
     private GroupLeader leader;
     private int groupId;
-    private ArrayList<Password> passwords;
     private ArrayList<User> members;
     protected int memberCount;
+
+    private PasswordManager passwordManager;
 
     private boolean groupIsOpen;
 
@@ -17,10 +18,10 @@ public class Group {
         this.leader = (GroupLeader) leader;
         this.groupId = groupId;
         //this.encryptedGroupPass = encrypt(groupPass);
-        passwords = new ArrayList<Password>();
         members = new ArrayList<User>();
         memberCount=0;
         this.groupIsOpen=true;
+        passwordManager = new PasswordManager();
     }
 
     public void addUserToGroup(User methodCaller, User personToBeAdded) throws NotLeaderException

@@ -1,13 +1,15 @@
 public class Platform {
     public String platformName;
     private String platformUsername;
-    private Password platformPassword;
+    private String encryptedPlatformPassword;
+    private int encyrptkey;
 
 
-    Platform(String platformName, String platformUsername, Password platformPassword)
+    Platform(String platformName, String platformUsername,String encryptedPlatformPassword, int encyrptkey)
     {
         this.platformName=platformName;
-        this.platformPassword=platformPassword;
+        this.encryptedPlatformPassword = encryptedPlatformPassword;
         this.platformUsername=platformUsername;
+        this.encyrptkey = encyrptkey;
     }
 }
