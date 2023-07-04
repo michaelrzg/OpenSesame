@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 public class Group {
-    private String groupName;
+    public String groupName;
     private String encryptedGroupPass;
-    private GroupLeader leader;
+    private User leader;
     private int groupId;
     private ArrayList<User> members;
     protected int memberCount;
@@ -15,7 +15,7 @@ public class Group {
     Group(String groupName, User leader, int groupId, String groupPAss)
     {
         this.groupName = groupName;
-        this.leader = (GroupLeader) leader;
+        this.leader = leader;
         this.groupId = groupId;
         //this.encryptedGroupPass = encrypt(groupPass);
         members = new ArrayList<User>();

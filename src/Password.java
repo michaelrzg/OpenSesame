@@ -1,8 +1,8 @@
 import java.util.Random;
 
 public class Password {
-    private String encryptedPass;
-    private int encryptMethodID;
+    public String encryptedPass;
+    public int encryptMethodID;
 
     //PASSWORDS CAN NOT INCLUDE '#' ',' or '&' symbols in sequence.
     Password(String originalPass)
@@ -16,12 +16,14 @@ public class Password {
             case 1:
                 encryptedPass = encryptMethod1(originalPass);
                 break;
-            case 2:
+            case 2: encryptedPass = encryptMethod2(originalPass);
                 break;
 
         }
 
     }
+
+    Password(){};
 
     private String encryptMethod0(String originalPass)
     {  int index;
@@ -30,7 +32,7 @@ public class Password {
             index = Math.round((float) Math.random()*8+1);
 
             encryptedPass += index + Integer.toHexString( ((int) originalPass.charAt(j) ) ^ index )+"-";
-            //converts into a line of 3 digits for each char by using hexStrings; adds a '-' symbol between each set of 3
+            //converts into a line of 3 char for each char by using hexString value; adds a '-' symbol between each set of 3
             //System.out.println("[debug in Passowrd line 36] current epass text is " + encryptedPass);
         }
         return encryptedPass.substring(0, encryptedPass.lastIndexOf("-"));
@@ -94,6 +96,31 @@ public class Password {
         }
         return decryptedPass;
 
+    }
+
+    private String encryptMethod2 (String originalPass){
+
+    return "";
+    }
+    private String decryptMethod2(String encryptedPass){
+        return "";
+    }
+
+    public String decryptPassword(String encryptedPass)
+    {
+        switch(encryptMethodID)
+        {
+            case 0: return decryptMethod0(encryptedPass);
+            case 1: return decryptMethod1(encryptedPass);
+            case 2 : return decryptMethod2(encryptedPass);
+        }
+        return null;
+    }
+
+    public void setPassword(String encryptedPass, int encryptMethodID)
+    {
+        this.encryptMethodID = encryptMethodID;
+        this.encryptedPass=encryptedPass;
     }
 
 }

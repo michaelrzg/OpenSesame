@@ -17,6 +17,7 @@ public class User {
         activeUser=true;
 
     }
+    User(){};
 
     public void setAccountPass(String accountPass) {
        // this.accountPass = encrypt(accountPass);
