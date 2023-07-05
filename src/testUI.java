@@ -37,6 +37,7 @@ public class testUI {
     static JLabel homeScreenIcon = new JLabel();
     static JLabel taskbar = new JLabel();
     static JButton plusIcon = new JButton();
+    static JButton groupIcon = new JButton();
 
     ImageIcon plusIconPng = new ImageIcon("res/plusIcon.png");
 
@@ -189,6 +190,8 @@ public class testUI {
                 System.out.println("plus icon pressed");
             }
         });
+
+        groupIcon.setIcon(new ImageIcon("res/groupIcon.png"));
 
 
         OpenHomepageAnimation a = new OpenHomepageAnimation();
