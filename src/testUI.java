@@ -13,32 +13,43 @@ public class testUI {
 
     //class attributes
     GroupManager groupManager;
-    //feel free to change color i was trying to find one that matched the logo well
-    Color primaryColor = new Color(255,172,172);
 
-    //UI objects
-    public JPanel panel= new JPanel();
-    public JFrame frame = new JFrame();
-    public JLabel title = new JLabel("",SwingConstants.CENTER);
+    Color primaryColor = new Color(255,172,172); //feel free to change color i was trying to find one that matched the logo well
+
+    //Login objects
+    public static JPanel panel= new JPanel();
+    public static JFrame frame = new JFrame();
+    public static JLabel title = new JLabel("",SwingConstants.CENTER);
     Border blackline = BorderFactory.createEtchedBorder();
+    public static JLabel login = new JLabel("Please Login", SwingConstants.CENTER);
+    public static ImageIcon openSesameLogo = new ImageIcon("res/openSesameIcon.png");
+    public static JLabel loginFrame = new JLabel();
+    static LineBorder roundedLineBorder = new LineBorder(Color.GRAY, 2, true);
+    static TitledBorder roundedTitledBorder = new TitledBorder(roundedLineBorder, "");
+    static JTextField username = new JTextField("  Username");
+    static JPasswordField password = new JPasswordField();
+    static JButton loginButton = new JButton("Login");
+    static  JLabel or = new JLabel("- - - - - or - - - - -");
+    static JButton createNewAccountButton = new JButton();
 
-    public JLabel login = new JLabel("Please Login", SwingConstants.CENTER);
+    //Homepage objects
 
-    public ImageIcon openSesameLogo = new ImageIcon("res/openSesameIcon.png");
+    static JLabel homeScreenIcon = new JLabel();
+    static JLabel taskbar = new JLabel();
+    static JButton plusIcon = new JButton();
 
-    public JLabel loginFrame = new JLabel();
-    LineBorder roundedLineBorder = new LineBorder(Color.GRAY, 2, true);
-    TitledBorder roundedTitledBorder = new TitledBorder(roundedLineBorder, "");
-    JTextField username = new JTextField("  Username");
-    JPasswordField password = new JPasswordField();
-    JButton loginButton = new JButton("Login");
-    JLabel or = new JLabel("- - - - - or - - - - -");
-    JButton createNewAccountButton = new JButton();
+    ImageIcon plusIconPng = new ImageIcon("res/plusIcon.png");
 
 
     testUI(GroupManager groupManager)
     {   this.groupManager=groupManager;
         initialize();
+       loginPage();
+
+    }
+
+    public void loginPage()
+    {
         frame.setSize(400,800);
         frame.setLocationRelativeTo(null);
         frame.add(panel);
@@ -125,7 +136,8 @@ public class testUI {
                 if(username.getText().equals("user") && pass.equals("pass"))
                 {
                     System.out.println("login success");
-
+                    closeLogin();
+                    homepage();
                 }
             }
         });
@@ -143,14 +155,49 @@ public class testUI {
         createNewAccountButton.setFocusPainted(false);
 
 
-
+    }
+    public void closeLogin()
+    {
+       CloseLoginAnimation a = new CloseLoginAnimation();
+       Thread b = new Thread(a);
+       b.start();
 
     }
-    public void closeLogin(){}
-    public void homepage(){};
+    public void homepage()
+    {
+        homeScreenIcon.setVisible(true);
+        homeScreenIcon.setBounds(200,-135,200,85); //intentially left off screen
+        homeScreenIcon.setFont(new Font("Tahoma", Font.TRUETYPE_FONT, 35));
+        homeScreenIcon.setIcon(new ImageIcon("res/openSesameIconHomepage.png"));
+
+        taskbar.setBorder(roundedTitledBorder);
+        taskbar.setBackground(Color.white);
+        taskbar.setOpaque(true);
+        taskbar.setVisible(true);
+        taskbar.setBounds(0,800,400,800);
+        taskbar.setBackground(new Color(238,185,185));
+
+        plusIcon.setIcon(plusIconPng);
+        plusIcon.setBounds(375,825,50,50);
+        plusIcon.setOpaque(false);
+        plusIcon.setContentAreaFilled(false);
+        plusIcon.setBorderPainted(false);
+        plusIcon.setFocusPainted(false);
+        plusIcon.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("plus icon pressed");
+            }
+        });
+
+
+        OpenHomepageAnimation a = new OpenHomepageAnimation();
+        Thread b = new Thread(a);
+        b.start();
+    };
 
     public void initialize()
-    {
+    {   //Login objects
         panel.add(createNewAccountButton);
         panel.add(or);
         panel.add(username);
@@ -159,6 +206,12 @@ public class testUI {
         panel.add(login);
         panel.add(title);
         panel.add(loginFrame);
+
+        //homepage objects
+
+        panel.add(plusIcon);
+        panel.add(homeScreenIcon);
+        panel.add(taskbar);
 
     }
     public void drawGroups()
