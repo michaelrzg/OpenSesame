@@ -2,10 +2,9 @@ public class Main
 {
     public static void main(String[]args)
     {
-        Password one = new Password("password\\4845");
-        GroupManager groupManager = new GroupManager();
+        //Password one = new Password("password\\4845");
 
-        testUI ui = new testUI(groupManager);
+        testUI ui = new testUI(new GroupManager());
 
     }
 }

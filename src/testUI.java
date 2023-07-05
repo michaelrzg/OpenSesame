@@ -29,7 +29,7 @@ public class testUI {
     public JLabel loginFrame = new JLabel();
     LineBorder roundedLineBorder = new LineBorder(Color.GRAY, 2, true);
     TitledBorder roundedTitledBorder = new TitledBorder(roundedLineBorder, "");
-    JTextField username = new JTextField(" Username");
+    JTextField username = new JTextField("  Username");
     JPasswordField password = new JPasswordField();
     JButton loginButton = new JButton("Login");
     JLabel or = new JLabel("- - - - - or - - - - -");
@@ -72,7 +72,7 @@ public class testUI {
         loginFrame.setOpaque(true);
         loginFrame.setBounds(45,200,300,350);
 
-        username.setBounds(120,310,150,30);
+        username.setBounds(95,300,200,50);
         username.setVisible(true);
         username.setBorder(roundedTitledBorder);
         username.addFocusListener(
@@ -85,10 +85,10 @@ public class testUI {
                     public void focusLost(FocusEvent e) {}
                 });
 
-        password.setBounds(120,360,150,30);
+        password.setBounds(95,370,200,50);
         password.setVisible(true);
         password.setEchoChar(c);
-        password.setText(" Password");
+        password.setText("  Password");
         password.setBorder(roundedTitledBorder);
         password.addFocusListener(
                 new FocusListener() {
@@ -102,13 +102,13 @@ public class testUI {
                     {
                         if(password.getPassword() == (empty))
                         {   password.setEchoChar(c);
-                            password.setText(" Password");
+                            password.setText("  Password");
 
                         }
                     }
                 });
         loginButton.setBorder(roundedTitledBorder);
-        loginButton.setBounds(95,420,200,50);
+        loginButton.setBounds(95,440,200,50);
         loginButton.setBackground(primaryColor);
         loginButton.setFocusPainted(false);
         loginButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
