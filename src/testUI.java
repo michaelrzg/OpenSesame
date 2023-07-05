@@ -42,6 +42,7 @@ public class testUI {
         frame.setSize(400,800);
         frame.setLocationRelativeTo(null);
         frame.add(panel);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.setIconImage(openSesameLogo.getImage());
         //panel.setBackground(new Color(229,174,174));
