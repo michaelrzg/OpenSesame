@@ -129,12 +129,12 @@ public class testUI {
             }
         });
 
-        or.setBounds(119, 580, 400,30);
+        or.setBounds(115, 580, 400,30);
         or.setVisible(true);
         or.setFont(new Font("Tahoma", Font.ITALIC, 18));
 
         createNewAccountButton.setBorder(roundedTitledBorder);
-        createNewAccountButton.setBounds(95,640,200,50);
+        createNewAccountButton.setBounds(90,640,200,50);
         createNewAccountButton.setBackground(new Color(144,140,140));
         createNewAccountButton.setVisible(true);
         createNewAccountButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
