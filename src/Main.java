@@ -4,7 +4,14 @@ public class Main
     {
         //Password one = new Password("password\\4845");
 
-        testUI ui = new testUI(new GroupManager());
+        GroupManager SampleGroupManager = new GroupManager();
+        SampleGroupManager.addGroup(new Group("test group A"));
+        SampleGroupManager.addGroup(new Group("test Group B"));
+        SampleGroupManager.addGroup(new Group("test Group C"));
+        SampleGroupManager.addGroup(new Group("test Group D"));
+
+
+        testUI ui = new testUI(SampleGroupManager);
 
     }
 }

@@ -23,6 +23,16 @@ public class Group {
         this.groupIsOpen=true;
         passwordManager = new PasswordManager();
     }
+    Group(String groupName)
+    {
+        this.groupName = groupName;
+        //this.encryptedGroupPass = encrypt(groupPass);
+        members = new ArrayList<User>();
+        memberCount=0;
+        this.groupIsOpen=true;
+        passwordManager = new PasswordManager();
+    }
+
 
     public void addUserToGroup(User methodCaller, User personToBeAdded) throws NotLeaderException
     {   System.out.println("[debug in group line 27] addUserToGroup");

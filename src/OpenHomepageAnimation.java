@@ -26,15 +26,32 @@ public class OpenHomepageAnimation implements Runnable{
                 {
                     testUI.homepageFrame.setBackground(new Color(255,172+i,172+i));
                 }
+
                 if(i==150)
                 {
                     testUI.homepageFrame.setBorder(testUI.roundedTitledBorder);
+                    if(testUI.drawA)
+                    {
+                        testUI.groupPositionA.setVisible(true);
+                    }
+                    if(testUI.drawB)
+                    {
+                        testUI.groupPositionB.setVisible(true);
+                    }
+                    if(testUI.drawC)
+                    {
+                        testUI.groupPositionC.setVisible(true);
+                    }
+                    if(testUI.drawD)
+                    {
+                        testUI.groupPositionD.setVisible(true);
+                    }
                 }
                 if(i<173) {
 
                    j=i;
                 }
-                testUI.welcomeBack.setForeground(new Color(255 -i, 172 - j, 172 - j));
+                testUI.recentGroupsLabel.setForeground(new Color(255 -i, 172 - j, 172 - j));
 
 
 

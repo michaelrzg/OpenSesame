@@ -28,6 +28,13 @@ public class OpenPlusMenuAnimation implements Runnable {
 
 
         }
+        if(i==600)
+        {
+            testUI.groupPositionA.setVisible(false);
+            testUI.groupPositionB.setVisible(false);
+            testUI.groupPositionC.setVisible(false);
+            testUI.groupPositionD.setVisible(false);
+        }
     }
 
 

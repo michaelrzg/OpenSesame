@@ -14,7 +14,9 @@ public class testUI {
     //class attributes
     GroupManager groupManager;
 
-    Color primaryColor = new Color(255,172,172); //feel free to change color i was trying to find one that matched the logo well
+    Color primaryColor = new Color(255,172,172);
+    //Color primaryColor = new Color(192,183,183);
+    // feel free to change color i was trying to find one that matched the logo well
 
     //Login objects
     public static JPanel panel= new JPanel();
@@ -45,18 +47,32 @@ public class testUI {
     static JLabel addFriendsLabel = new JLabel("Add Friends");
     static JLabel addFriendsFrame = new JLabel();
     static JComboBox comboBox = new JComboBox();
-    Object [] groupsIntoArray;
-    static JLabel welcomeBack = new JLabel("Welcome Back");
+    Group [] groupsIntoArray;
+    static JLabel recentGroupsLabel = new JLabel("Recent Groups");
     static JLabel homepageFrame = new JLabel();
     static JLabel searchBarTemp = new JLabel();
     static ImageIcon searchbarPng = new ImageIcon("res/serachbar.png");
+    static JButton groupPositionA = new JButton();
+    static JButton groupPositionB = new JButton();
+    static JButton groupPositionC = new JButton();
+    static JButton groupPositionD = new JButton();
+    static boolean drawA = false;
+    static boolean drawB = false;
+    static boolean drawC = false;
+    static boolean drawD = false;
+
+    static Color groupColor = new Color(186,82,82);
+
 
     public testUI(GroupManager groupManager)
     {   this.groupManager=groupManager;
         initializePanel();
        loginPage();
-         groupsIntoArray = groupManager.groups.toArray();
-
+       groupsIntoArray = new Group[groupManager.groups.size()];
+       for(int i=0;i<groupsIntoArray.length;i++)
+       {
+           groupsIntoArray[i] = groupManager.groups.get(i);
+       }
     }
 
     public testUI() {
@@ -254,9 +270,9 @@ public class testUI {
         comboBox.setBounds(85,830,210,20);
         comboBox.setVisible(true);
 
-        welcomeBack.setFont(new Font("Tahoma", Font.TRUETYPE_FONT, 20));
-        welcomeBack.setBounds(130,105,150,50);
-        welcomeBack.setForeground(new Color(255,172,172));
+        recentGroupsLabel.setFont(new Font("Tahoma", Font.TRUETYPE_FONT, 20));
+        recentGroupsLabel.setBounds(130,135,150,50);
+        recentGroupsLabel.setForeground(new Color(255,172,172));
 
 
         homepageFrame.setBackground(Color.white);
@@ -269,6 +285,47 @@ public class testUI {
         searchBarTemp.setVisible(true);
         searchBarTemp.setBounds(125,900, 250,52);
 
+        groupPositionA.setBounds(95,210,200,75);
+        groupPositionA.setFont(new Font("Tahoma", Font.ITALIC, 20));
+        groupPositionA.setVisible(false);
+        groupPositionA.setBorder(new RoundedBorder(15));
+        groupPositionA.setOpaque(false);
+        groupPositionA.setContentAreaFilled(true);
+        groupPositionA.setBorderPainted(true);
+        groupPositionA.setFocusPainted(false);
+        groupPositionA.setBackground(groupColor);
+
+        groupPositionB.setBounds(95,310,200,75);
+        groupPositionB.setFont(new Font("Tahoma", Font.ITALIC, 20));
+        groupPositionB.setVisible(false);
+        groupPositionB.setBorder(blackline);
+        groupPositionB.setOpaque(true);
+        groupPositionB.setContentAreaFilled(true);
+        groupPositionB.setBorderPainted(true);
+        groupPositionB.setFocusPainted(false);
+        groupPositionB.setBackground(groupColor);
+
+        groupPositionC.setBounds(95,410,200,75);
+        groupPositionC.setFont(new Font("Tahoma", Font.ITALIC, 20));
+        groupPositionC.setVisible(false);
+        groupPositionC.setBorder(blackline);
+        groupPositionC.setOpaque(true);
+        groupPositionC.setContentAreaFilled(true);
+        groupPositionC.setBorderPainted(true);
+        groupPositionC.setFocusPainted(false);
+        groupPositionC.setBackground(new Color(95,96,96));
+
+        groupPositionD.setBounds(95,510,200,75);
+        groupPositionD.setFont(new Font("Tahoma", Font.ITALIC, 20));
+        groupPositionD.setVisible(false);
+        groupPositionD.setBorder(blackline);
+        groupPositionD.setOpaque(true);
+        groupPositionD.setContentAreaFilled(true);
+        groupPositionD.setBorderPainted(true);
+        groupPositionD.setFocusPainted(false);
+        groupPositionD.setBackground(primaryColor);
+
+        drawGroups();
 
         OpenHomepageAnimation a = new OpenHomepageAnimation();
         Thread b = new Thread(a);
@@ -302,9 +359,14 @@ public class testUI {
         panel.add(groupIcon);
         panel.add(plusIcon);
 
+
         panel.add(homeScreenIcon);
         panel.add(taskbar);
-        panel.add(welcomeBack);
+        panel.add(groupPositionA);
+        panel.add(groupPositionB);
+        panel.add(groupPositionC);
+        panel.add(groupPositionD);
+        panel.add(recentGroupsLabel);
         panel.add(homepageFrame);
 
         panel.add(comboBox);
@@ -314,25 +376,33 @@ public class testUI {
     }
     public void drawGroups()
     {   int start =200;
-        for (Group i : groupManager.groups)
+
+        for(int i=0;i<groupsIntoArray.length;i++)
         {
+            if(i<4)
+            {
+                switch (i) {
 
-            JButton button = new JButton();
-            button.setBackground(new Color(59, 89, 182));
-            button.setText(i.groupName);
-            button.setVisible(true);
-            button.setBorder(blackline);
-            button.setBorderPainted(true);
-            button.setBounds(50,start, 100,50);
-            button.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    openGroup(i);
-                }
-            });
+                    case 0:
+                        drawA =true;
+                        groupPositionA.setText(groupsIntoArray[i].groupName);
 
-            panel.add(button);
-            start+=60;
+                        break;
+                    case 1:
+                        drawB=true;
+                        groupPositionB.setText(groupsIntoArray[i].groupName);
+                        break;
+                    case 2:
+                        drawC=true;
+                        groupPositionC.setText(groupsIntoArray[i].groupName);
+                        break;
+                    case 3:
+                        drawD=true;
+                        groupPositionD.setText(groupsIntoArray[i].groupName);
+                        break;
+
+            }
+            }
         }
     }
 
