@@ -1,3 +1,5 @@
+
+
 public class CloseLoginAnimation implements Runnable{
 
     @Override

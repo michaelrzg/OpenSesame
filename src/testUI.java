@@ -37,16 +37,29 @@ public class testUI {
     static JLabel homeScreenIcon = new JLabel();
     static JLabel taskbar = new JLabel();
     static JButton plusIcon = new JButton();
+    static ImageIcon plusIconPng = new ImageIcon("res/plusIcon.png");
     static JButton groupIcon = new JButton();
+    static ImageIcon groupsIconPng = new ImageIcon("res/groupIcon.png");
+    static JButton settingsIcon = new JButton();
+    static ImageIcon settingsIconPng = new ImageIcon("res/settingsIcon.png");
+    static JLabel addFriendsLabel = new JLabel("Add Friends");
+    static JLabel addFriendsFrame = new JLabel();
+    static JComboBox comboBox = new JComboBox();
+    Object [] groupsIntoArray;
+    static JLabel welcomeBack = new JLabel("Welcome Back");
+    static JLabel homepageFrame = new JLabel();
+    static JLabel searchBarTemp = new JLabel();
+    static ImageIcon searchbarPng = new ImageIcon("res/serachbar.png");
 
-    ImageIcon plusIconPng = new ImageIcon("res/plusIcon.png");
-
-
-    testUI(GroupManager groupManager)
+    public testUI(GroupManager groupManager)
     {   this.groupManager=groupManager;
-        initialize();
+        initializePanel();
        loginPage();
+         groupsIntoArray = groupManager.groups.toArray();
 
+    }
+
+    public testUI() {
     }
 
     public void loginPage()
@@ -129,6 +142,7 @@ public class testUI {
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+               /*
                 String pass="";
                 for(int i=0;i<password.getPassword().length;i++)
                 {
@@ -140,6 +154,10 @@ public class testUI {
                     closeLogin();
                     homepage();
                 }
+
+                */
+                closeLogin();
+                homepage();
             }
         });
 
@@ -188,19 +206,82 @@ public class testUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("plus icon pressed");
+                OpenPlusMenuAnimation a = new OpenPlusMenuAnimation();
+                Thread x = new Thread(a);
+                x.start();
+            }
+        });
+        groupIcon.setIcon(groupsIconPng);
+        groupIcon.setVisible(true);
+        groupIcon.setBounds(375,825,50,50);
+        groupIcon.setOpaque(false);
+        groupIcon.setContentAreaFilled(false);
+        groupIcon.setBorderPainted(false);
+        groupIcon.setFocusPainted(false);
+        groupIcon.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("groupIcon pressed");
+
             }
         });
 
-        groupIcon.setIcon(new ImageIcon("res/groupIcon.png"));
+        settingsIcon.setIcon(settingsIconPng);
+        settingsIcon.setVisible(true);
+        settingsIcon.setBounds(375,825,50,50);
+        settingsIcon.setOpaque(false);
+        settingsIcon.setContentAreaFilled(false);
+        settingsIcon.setBorderPainted(false);
+        settingsIcon.setFocusPainted(false);
+        settingsIcon.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Settings Pressed");
+            }
+        });
+
+        addFriendsLabel.setBounds(200,-100,175,85);
+        addFriendsLabel.setFont(new Font("Tahoma", Font.TRUETYPE_FONT, 20));
+        addFriendsLabel.setVisible(true);
+
+        addFriendsFrame.setBorder(roundedTitledBorder);
+        addFriendsFrame.setBackground(Color.white);
+        addFriendsFrame.setVisible(true);
+        addFriendsFrame.setOpaque(true);
+        addFriendsFrame.setBounds(45,900,300,550);
+
+        comboBox = new JComboBox(groupsIntoArray);
+        comboBox.setBounds(85,830,210,20);
+        comboBox.setVisible(true);
+
+        welcomeBack.setFont(new Font("Tahoma", Font.TRUETYPE_FONT, 20));
+        welcomeBack.setBounds(130,105,150,50);
+        welcomeBack.setForeground(new Color(255,172,172));
+
+
+        homepageFrame.setBackground(Color.white);
+        homepageFrame.setVisible(true);
+        homepageFrame.setOpaque(true);
+        homepageFrame.setBounds(45,90,300,570);
+        homepageFrame.setBackground(new Color(255,172,172));
+
+        searchBarTemp.setIcon(searchbarPng);
+        searchBarTemp.setVisible(true);
+        searchBarTemp.setBounds(125,900, 250,52);
 
 
         OpenHomepageAnimation a = new OpenHomepageAnimation();
         Thread b = new Thread(a);
         b.start();
+
+
     };
 
-    public void initialize()
-    {   //Login objects
+
+
+    public void initializePanel()
+    {   panel.add(searchBarTemp);
+        //Login objects
         panel.add(createNewAccountButton);
         panel.add(or);
         panel.add(username);
@@ -210,11 +291,25 @@ public class testUI {
         panel.add(title);
         panel.add(loginFrame);
 
-        //homepage objects
+        //plus menu objects
 
+        panel.add(addFriendsLabel);
+        panel.add(addFriendsFrame);
+
+
+        //homepage objects
+        panel.add(settingsIcon);
+        panel.add(groupIcon);
         panel.add(plusIcon);
+
         panel.add(homeScreenIcon);
         panel.add(taskbar);
+        panel.add(welcomeBack);
+        panel.add(homepageFrame);
+
+        panel.add(comboBox);
+
+
 
     }
     public void drawGroups()
