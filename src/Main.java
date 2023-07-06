@@ -8,10 +8,10 @@ public class Main
 
 
         GroupManager SampleGroupManager = new GroupManager();
-        SampleGroupManager.addGroup(new Group("test group A"));
-        SampleGroupManager.addGroup(new Group("test Group B"));
-        SampleGroupManager.addGroup(new Group("test Group C"));
-        SampleGroupManager.addGroup(new Group("test Group D"));
+        SampleGroupManager.addGroup(new Group("Test Group A"));
+        SampleGroupManager.addGroup(new Group("Test Group B"));
+        SampleGroupManager.addGroup(new Group("Test Group C"));
+        SampleGroupManager.addGroup(new Group("Test Group D"));
 
 
         testUI ui = new testUI(SampleGroupManager);

@@ -15,7 +15,7 @@ public class testUI {
     GroupManager groupManager;
 
     Color primaryColor = new Color(255,172,172);
-    //Color primaryColor = new Color(192,183,183);
+    //Color primaryColor = new Color(124,220,220);
     // feel free to change color i was trying to find one that matched the logo well
 
     //Login objects
@@ -44,7 +44,7 @@ public class testUI {
     static ImageIcon groupsIconPng = new ImageIcon("res/groupIcon.png");
     static JButton settingsIcon = new JButton();
     static ImageIcon settingsIconPng = new ImageIcon("res/settingsIcon.png");
-    static JLabel addFriendsLabel = new JLabel("Add Friends");
+    static JLabel addFriendsLabel = new JLabel("Add Friends or Groups");
     static JLabel addFriendsFrame = new JLabel();
     static JComboBox comboBox = new JComboBox();
     Group [] groupsIntoArray;
@@ -60,8 +60,11 @@ public class testUI {
     static boolean drawB = false;
     static boolean drawC = false;
     static boolean drawD = false;
-
     static Color groupColor = new Color(186,82,82);
+    static JLabel plusMenuOr = new JLabel("- - - - - - or - - - - - -");
+    static JLabel createNewGroupLabel = new JLabel("Create a New Group");
+    static JButton createNewGroupButton = new JButton();
+    static boolean taskbarIsOpening = false;
 
 
     public testUI(GroupManager groupManager)
@@ -225,6 +228,8 @@ public class testUI {
                 OpenPlusMenuAnimation a = new OpenPlusMenuAnimation();
                 Thread x = new Thread(a);
                 x.start();
+                taskbarIsOpening=true;
+
             }
         });
         groupIcon.setIcon(groupsIconPng);
@@ -257,8 +262,29 @@ public class testUI {
         });
 
         addFriendsLabel.setBounds(200,-100,175,85);
-        addFriendsLabel.setFont(new Font("Tahoma", Font.TRUETYPE_FONT, 20));
+        addFriendsLabel.setFont(new Font("Tahoma", Font.TRUETYPE_FONT, 15));
         addFriendsLabel.setVisible(true);
+
+        createNewGroupLabel.setBounds(200,-100,175,85);
+        createNewGroupLabel.setFont(new Font("Tahoma", Font.TRUETYPE_FONT, 15));
+        createNewGroupLabel.setVisible(true);
+
+        createNewGroupButton.setBounds(200,-100,175,50);
+        createNewGroupButton.setFont(new Font("Tahoma", Font.TRUETYPE_FONT, 15));
+        createNewGroupButton.setVisible(true);
+        createNewGroupButton.setOpaque(true);
+        createNewGroupButton.setContentAreaFilled(true);
+        createNewGroupButton.setBorderPainted(false);
+        createNewGroupButton.setFocusPainted(false);
+        createNewGroupButton.setBorderPainted(true);
+        createNewGroupButton.setBorder(blackline);
+        createNewGroupButton.setBackground(new Color(144,140,140));
+        createNewGroupButton.setText("Create");
+
+
+        plusMenuOr.setBounds(200,-100,175,85);
+        plusMenuOr.setVisible(true);
+        plusMenuOr.setFont(new Font("Tahoma", Font.TRUETYPE_FONT, 20));
 
         addFriendsFrame.setBorder(roundedTitledBorder);
         addFriendsFrame.setBackground(Color.white);
@@ -325,6 +351,7 @@ public class testUI {
         groupPositionD.setFocusPainted(false);
         groupPositionD.setBackground(primaryColor);
 
+
         drawGroups();
 
         OpenHomepageAnimation a = new OpenHomepageAnimation();
@@ -338,6 +365,7 @@ public class testUI {
 
     public void initializePanel()
     {   panel.add(searchBarTemp);
+        panel.add(plusMenuOr);
         //Login objects
         panel.add(createNewAccountButton);
         panel.add(or);
@@ -349,7 +377,8 @@ public class testUI {
         panel.add(loginFrame);
 
         //plus menu objects
-
+        panel.add(createNewGroupButton);
+        panel.add(createNewGroupLabel);
         panel.add(addFriendsLabel);
         panel.add(addFriendsFrame);
 

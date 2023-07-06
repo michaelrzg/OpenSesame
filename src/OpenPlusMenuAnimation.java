@@ -17,10 +17,13 @@ public class OpenPlusMenuAnimation implements Runnable {
                 testUI.groupIcon.setLocation(60, 695 - i);
                 testUI.plusIcon.setLocation(165, 695 - i);
                 testUI.settingsIcon.setLocation(270, 695 - i);
-                testUI.addFriendsLabel.setLocation(138, 770 - i);
+                testUI.addFriendsLabel.setLocation(125, 835 - i);
                 testUI.addFriendsFrame.setLocation(45,780-i);
                 testUI.comboBox.setLocation(85,830-i);
-                testUI.searchBarTemp.setLocation(75,840-i);
+                testUI.searchBarTemp.setLocation(75,910-i);
+                testUI.plusMenuOr.setLocation(110,1000-i);
+                testUI.createNewGroupLabel.setLocation(128,1080-i);
+                testUI.createNewGroupButton.setLocation(108,1160-i);
 
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
@@ -36,7 +39,7 @@ public class OpenPlusMenuAnimation implements Runnable {
             testUI.groupPositionD.setVisible(false);
         }
     }
-
+    testUI.taskbarIsOpening=false;
 
 
     }
