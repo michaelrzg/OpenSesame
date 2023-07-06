@@ -7,7 +7,7 @@ public class Password {
     //PASSWORDS CAN NOT INCLUDE '#' ',' or '&' symbols in sequence.
     Password(String originalPass)
     {   Random rand = new Random();
-        encryptMethodID = rand.nextInt(3);
+        /*encryptMethodID = rand.nextInt(3);
         switch (encryptMethodID)
         {
             case 0:
@@ -20,6 +20,10 @@ public class Password {
                 break;
 
         }
+
+         */
+        encryptedPass=encryptMethod2(originalPass);
+        encryptMethodID = 2;
 
     }
 
@@ -99,11 +103,33 @@ public class Password {
     }
 
     private String encryptMethod2 (String originalPass){
+    char [] array = originalPass.toCharArray();
+    String result = "";
+    for (int i=0;i<array.length;i++){
+        array[i] += i;
+    }
+    for(int i=0;i<array.length;i++)
+    {
+        result+= "-" + array[i] + ",";
+    }
 
-    return "";
+    return result;
     }
     private String decryptMethod2(String encryptedPass){
-        return "";
+        String result = encryptedPass.replace("-","");
+        result = result.replace(",","");
+        String returnable = "";
+        char [] array = result.toCharArray();
+        for (int i=0;i<array.length;i++){
+            array[i] -= i;
+        }
+        for(int i=0;i<array.length;i++)
+        {
+            returnable += array[i];
+        }
+
+
+        return returnable;
     }
 
     public String decryptPassword(String encryptedPass)
