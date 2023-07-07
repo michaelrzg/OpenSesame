@@ -23,7 +23,7 @@ public class testUI {
     public static JFrame frame = new JFrame();
     public static JLabel title = new JLabel("",SwingConstants.CENTER);
     Border blackline = BorderFactory.createEtchedBorder();
-    public static JLabel login = new JLabel("Please Login", SwingConstants.CENTER);
+    public static JLabel login = new JLabel("Please Login",SwingConstants.CENTER);
     public static ImageIcon openSesameLogo = new ImageIcon("res/openSesameIcon.png");
     public static JLabel loginFrame = new JLabel();
     static LineBorder roundedLineBorder = new LineBorder(Color.GRAY, 2, true);
@@ -97,6 +97,12 @@ public class testUI {
         panel.setLayout(null);
         frame.setVisible(true);
 
+        loginFrame.setBorder(roundedTitledBorder);
+        loginFrame.setBackground(Color.white);
+        loginFrame.setVisible(true);
+        loginFrame.setOpaque(true);
+        loginFrame.setLocation(45,200);
+        loginFrame.setSize(300,350);
 
         title.setIcon(openSesameLogo);
         title.setBounds(90,80,200,85);
@@ -109,8 +115,10 @@ public class testUI {
         //login.setHorizontalAlignment(JLabel.CENTER);
         login.setFont(new Font("Tahoma", Font.BOLD, 20));
 
+
+
         incorrectPasswordLabel.setForeground(Color.red);
-        incorrectPasswordLabel.setBounds(100,465,300,100);
+        incorrectPasswordLabel.setBounds(99,465,300,100);
         incorrectPasswordLabel.setFont(new Font("Tahoma", Font.PLAIN, 10));
         incorrectPasswordLabel.setVisible(false);
         incorrectPasswordLabel.setText("<html>Your login details don't match our records,<br/>&nbsp;&nbsp;&nbsp;" +
@@ -119,11 +127,8 @@ public class testUI {
 
         char c = 0;
         char [] empty = {};
-        loginFrame.setBorder(roundedTitledBorder);
-        loginFrame.setBackground(Color.white);
-        loginFrame.setVisible(true);
-        loginFrame.setOpaque(true);
-        loginFrame.setBounds(45,200,300,350);
+
+
 
         username.setBounds(95,300,200,50);
         username.setVisible(true);
@@ -165,6 +170,7 @@ public class testUI {
         loginButton.setBackground(primaryColor);
         loginButton.setFocusPainted(false);
         loginButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
+
 
         loginButton.addActionListener(new ActionListener() {
             @Override
@@ -374,31 +380,35 @@ public class testUI {
 
 
     public void initializePanel()
-    {   panel.add(searchBarTemp);
+    {
+
+
+        panel.add(searchBarTemp);
         panel.add(plusMenuOr);
+
         //Login objects
         panel.add(createNewAccountButton);
         panel.add(or);
         panel.add(username);
         panel.add(password);
         panel.add(loginButton);
-        panel.add(login);
+
         panel.add(title);
         panel.add(incorrectPasswordLabel);
-        panel.add(loginFrame);
+
 
         //plus menu objects
         panel.add(createNewGroupButton);
         panel.add(createNewGroupLabel);
         panel.add(addFriendsLabel);
         panel.add(addFriendsFrame);
-
+        panel.add(login);
 
         //homepage objects
         panel.add(settingsIcon);
         panel.add(groupIcon);
         panel.add(plusIcon);
-
+        panel.add(loginFrame);
 
         panel.add(homeScreenIcon);
         panel.add(taskbar);
@@ -415,7 +425,7 @@ public class testUI {
 
     }
     public void drawGroups()
-    {   int start =200;
+    {
 
         for(int i=0;i<groupsIntoArray.length;i++)
         {
@@ -445,6 +455,7 @@ public class testUI {
             }
         }
     }
+
 
     public void openGroup(Group group)
     {
