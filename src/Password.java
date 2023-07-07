@@ -7,7 +7,7 @@ public class Password {
     //PASSWORDS CAN NOT INCLUDE '#' ',' or '&' symbols in sequence.
     Password(String originalPass)
     {   Random rand = new Random();
-        /*encryptMethodID = rand.nextInt(3);
+        encryptMethodID = rand.nextInt(3);
         switch (encryptMethodID)
         {
             case 0:
@@ -21,9 +21,7 @@ public class Password {
 
         }
 
-         */
-        encryptedPass=encryptMethod2(originalPass);
-        encryptMethodID = 2;
+         
 
     }
 
