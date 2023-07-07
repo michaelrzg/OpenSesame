@@ -33,6 +33,7 @@ public class testUI {
     static JButton loginButton = new JButton("Login");
     static  JLabel or = new JLabel("- - - - - or - - - - -");
     static JButton createNewAccountButton = new JButton();
+    static JLabel incorrectPasswordLabel = new JLabel();
 
     //Homepage objects
 
@@ -108,6 +109,13 @@ public class testUI {
         //login.setHorizontalAlignment(JLabel.CENTER);
         login.setFont(new Font("Tahoma", Font.BOLD, 20));
 
+        incorrectPasswordLabel.setForeground(Color.red);
+        incorrectPasswordLabel.setBounds(100,465,300,100);
+        incorrectPasswordLabel.setFont(new Font("Tahoma", Font.PLAIN, 10));
+        incorrectPasswordLabel.setVisible(false);
+        incorrectPasswordLabel.setText("<html>Your login details don't match our records,<br/>&nbsp;&nbsp;&nbsp;" +
+                "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;please try again.<html>");
+
 
         char c = 0;
         char [] empty = {};
@@ -161,7 +169,7 @@ public class testUI {
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               /*
+
                 String pass="";
                 for(int i=0;i<password.getPassword().length;i++)
                 {
@@ -172,11 +180,13 @@ public class testUI {
                     System.out.println("login success");
                     closeLogin();
                     homepage();
+                } else
+                {
+                    incorrectPasswordLabel.setVisible(true);
                 }
 
-                */
-                closeLogin();
-                homepage();
+
+
             }
         });
 
@@ -195,7 +205,7 @@ public class testUI {
 
     }
     public void closeLogin()
-    {
+    {  incorrectPasswordLabel.setVisible(false);
        CloseLoginAnimation a = new CloseLoginAnimation();
        Thread b = new Thread(a);
        b.start();
@@ -374,6 +384,7 @@ public class testUI {
         panel.add(loginButton);
         panel.add(login);
         panel.add(title);
+        panel.add(incorrectPasswordLabel);
         panel.add(loginFrame);
 
         //plus menu objects
