@@ -1,12 +1,11 @@
-import java.awt.*;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Handler;
 
-public class OpenPlusMenuAnimation implements Runnable {
+public class OpenTaskbarAnimation implements Runnable {
 
     @Override
     public void run(){
 
+        testUI.taskbarIsOpen=true;
     for(int i=0;i<620;i++) {
         if (i % 2 == 0) {
             try {
@@ -24,7 +23,9 @@ public class OpenPlusMenuAnimation implements Runnable {
                 testUI.plusMenuOr.setLocation(110,1000-i);
                 testUI.createNewGroupLabel.setLocation(128,1080-i);
                 testUI.createNewGroupButton.setLocation(108,1160-i);
-
+                testUI.allGroupsLabel.setLocation(148,805-i);
+                testUI.addOrDeleteGroups.setLocation(63,1275-i);
+                testUI.filterBy.setLocation(201,1275-i);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

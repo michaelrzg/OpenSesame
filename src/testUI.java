@@ -66,6 +66,16 @@ public class testUI {
     static JLabel createNewGroupLabel = new JLabel("Create a New Group");
     static JButton createNewGroupButton = new JButton();
     static boolean taskbarIsOpening = false;
+    static boolean taskbarIsOpen = false;
+    static boolean taskbarIsClosing = false;
+
+    //Group Menu objects
+
+    static JButton filterBy = new JButton("Filter / Sort");
+    static JButton addOrDeleteGroups = new JButton("Delete Groups");
+    static JLabel allGroupsLabel = new JLabel("All Groups");
+    static boolean plusTab=false;
+
 
 
     public testUI(GroupManager groupManager)
@@ -79,8 +89,6 @@ public class testUI {
        }
     }
 
-    public testUI() {
-    }
 
     public void loginPage()
     {
@@ -175,7 +183,7 @@ public class testUI {
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                /*
                 String pass="";
                 for(int i=0;i<password.getPassword().length;i++)
                 {
@@ -191,7 +199,9 @@ public class testUI {
                     incorrectPasswordLabel.setVisible(true);
                 }
 
-
+                */
+                closeLogin();
+                homepage();
 
             }
         });
@@ -224,6 +234,8 @@ public class testUI {
         homeScreenIcon.setFont(new Font("Tahoma", Font.TRUETYPE_FONT, 35));
         homeScreenIcon.setIcon(new ImageIcon("res/openSesameIconHomepage.png"));
 
+
+
         taskbar.setBorder(roundedTitledBorder);
         taskbar.setBackground(Color.white);
         taskbar.setOpaque(true);
@@ -241,10 +253,8 @@ public class testUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("plus icon pressed");
-                OpenPlusMenuAnimation a = new OpenPlusMenuAnimation();
-                Thread x = new Thread(a);
-                x.start();
-                taskbarIsOpening=true;
+               openPlusMenu();
+
 
             }
         });
@@ -259,7 +269,7 @@ public class testUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("groupIcon pressed");
-
+                openGroupsMenu();
             }
         });
 
@@ -367,6 +377,28 @@ public class testUI {
         groupPositionD.setFocusPainted(false);
         groupPositionD.setBackground(primaryColor);
 
+        allGroupsLabel.setFont(new Font("Tahoma", Font.TRUETYPE_FONT, 20));
+        allGroupsLabel.setBounds(148,185,150,50);
+        allGroupsLabel.setVisible(false);
+
+        addOrDeleteGroups.setFont(new Font("Tahoma", Font.TRUETYPE_FONT, 13));
+        addOrDeleteGroups.setBounds(63,655,120,40);
+        addOrDeleteGroups.setText("Delete");
+        addOrDeleteGroups.setVisible(false);
+        addOrDeleteGroups.setContentAreaFilled(true);
+        addOrDeleteGroups.setBorderPainted(true);
+        addOrDeleteGroups.setFocusPainted(false);
+        addOrDeleteGroups.setBackground(primaryColor);
+
+        filterBy.setFont(new Font("Tahoma", Font.TRUETYPE_FONT, 13));
+        filterBy.setBounds(210,655,120,40);
+        filterBy.setVisible(false);
+        filterBy.setContentAreaFilled(true);
+        filterBy.setBorderPainted(true);
+        filterBy.setFocusPainted(false);
+        filterBy.setBackground(primaryColor);
+
+
 
         drawGroups();
 
@@ -376,6 +408,68 @@ public class testUI {
 
 
     };
+    public void closeTaskBar()
+    {
+        if(!taskbarIsOpening && taskbarIsOpen )
+        {
+            closeTaskbarAnimation closeTaskbarAnimation = new closeTaskbarAnimation();
+            Thread thread = new Thread(closeTaskbarAnimation);
+            thread.start();
+        }
+    }
+    public void clearAllMenu()
+    {
+        addFriendsLabel.setVisible(false);
+        createNewGroupButton.setVisible(false);
+        addFriendsFrame.setVisible(false);
+        plusMenuOr.setVisible(false);
+        searchBarTemp.setVisible(false);
+        createNewGroupLabel.setVisible(false);
+        addOrDeleteGroups.setVisible(false);
+        filterBy.setVisible(false);
+        allGroupsLabel.setVisible(false);
+    }
+
+    public void openGroupsMenu()
+    {   plusTab=false;
+        clearAllMenu();
+        addOrDeleteGroups.setVisible(true);
+        filterBy.setVisible(true);
+        allGroupsLabel.setVisible(true);
+        addFriendsFrame.setVisible(true);
+        if(!taskbarIsOpen)
+    {
+        OpenTaskbarAnimation taskbarAnimation = new OpenTaskbarAnimation();
+        Thread runnableThread = new Thread(taskbarAnimation);
+        runnableThread.start();
+    }
+
+
+
+    }
+
+    public void  openPlusMenu()
+    {   clearAllMenu();
+
+        if(!taskbarIsOpen) {
+            OpenTaskbarAnimation a = new OpenTaskbarAnimation();
+            Thread x = new Thread(a);
+            x.start();
+            taskbarIsOpening=true;
+
+        }
+        else if(plusTab)
+        {
+            closeTaskBar();
+        }
+        addFriendsLabel.setVisible(true);
+        createNewGroupButton.setVisible(true);
+        addFriendsFrame.setVisible(true);
+        plusMenuOr.setVisible(true);
+        searchBarTemp.setVisible(true);
+        createNewGroupLabel.setVisible(true);
+        plusTab=true;
+    }
 
 
 
@@ -395,7 +489,10 @@ public class testUI {
 
         panel.add(title);
         panel.add(incorrectPasswordLabel);
-
+        // group menu Icon
+        panel.add(filterBy);
+        panel.add(addOrDeleteGroups);
+        panel.add(allGroupsLabel);
 
         //plus menu objects
         panel.add(createNewGroupButton);
