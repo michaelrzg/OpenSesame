@@ -68,14 +68,14 @@ public class OpenSesameUI {
 
          text.setIcon(new ImageIcon("res/groupButton.png"));
         text.setFont(derivedOpenSansFont);
-        text.setBounds(62,163,220,45);
+        text.setBounds(72,192,200,42);
         text.setVisible(true);
         text.setOpaque(true);
         text.setContentAreaFilled(false);
          text.setBorderPainted(false);
          text.setFocusPainted(false);
 
-         text2.setBounds(62,163,220,45);
+         text2.setBounds(72,192,200,42);
          text2.setVisible(true);
          text2.setOpaque(false);
          text2.setFont(derivedOpenSansFont);
