@@ -1,29 +1,40 @@
+import javax.swing.border.AbstractBorder;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import java.awt.*;
+import java.awt.geom.RoundRectangle2D;
 
-public class RoundedBorder implements Border {
+public class RoundedBorder extends AbstractBorder {
 
-    private int radius;
+    private final Color color;
+    private final int gap;
 
-
-    RoundedBorder(int radius) {
-
-        this.radius = radius;
+    public RoundedBorder(Color c, int g) {
+        color = c;
+        gap = g;
     }
 
-
-    public Insets getBorderInsets(Component c) {
-        return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
-    }
-
-
-    public boolean isBorderOpaque() {
-        return true;
-    }
-
-
+    @Override
     public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
-        g.drawRoundRect(x, y, width-1, height-1, radius, radius);
+        Graphics2D g2d = (Graphics2D) g.create();
+        g2d.setColor(color);
+        g2d.draw(new RoundRectangle2D.Double(x, y, width - 1, height - 1, gap, gap));
+        g2d.dispose();
+    }
+
+    @Override
+    public Insets getBorderInsets(Component c) {
+        return (getBorderInsets(c, new Insets(gap, gap, gap, gap)));
+    }
+
+    @Override
+    public Insets getBorderInsets(Component c, Insets insets) {
+        insets.left = insets.top = insets.right = insets.bottom = gap / 2;
+        return insets;
+    }
+
+    @Override
+    public boolean isBorderOpaque() {
+        return false;
     }
 }

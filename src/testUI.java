@@ -340,7 +340,7 @@ public class testUI {
         groupPositionA.setBounds(95,210,200,75);
         groupPositionA.setFont(new Font("Tahoma", Font.ITALIC, 20));
         groupPositionA.setVisible(false);
-        groupPositionA.setBorder(new RoundedBorder(15));
+        //groupPositionA.setBorder(new RoundedBorder(15));
         groupPositionA.setOpaque(false);
         groupPositionA.setContentAreaFilled(true);
         groupPositionA.setBorderPainted(true);

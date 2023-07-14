@@ -2,6 +2,9 @@ public class Main
 {
     public static void main(String[]args)
     {
+        //PASSWORDS CAN NOT INCLUDE '#' ',' or '&' symbols in sequence.
+        //see Passwords class for more details
+
         Password one = new Password("password");
         System.out.println(one.encryptedPass);
         System.out.println(one.decryptPassword(one.encryptedPass));
@@ -14,7 +17,8 @@ public class Main
         SampleGroupManager.addGroup(new Group("Test Group D"));
 
 
-        testUI ui = new testUI(SampleGroupManager);
+      //  testUI ui = new testUI(SampleGroupManager);
+        OpenSesameUI ui = new OpenSesameUI();
 
     }
 }
