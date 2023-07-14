@@ -14,7 +14,8 @@ public class OpenSesameUI {
      static ImageIcon groupsBacking = new ImageIcon("res/GroupsBackground.png");
 
      static JLabel todos = new JLabel();
-     static ImageIcon todosicon = new ImageIcon("res/Group_5_2.png");
+     static ImageIcon todosicon = new ImageIcon("res/Group_7.png");
+
 
 
 
@@ -59,18 +60,6 @@ public class OpenSesameUI {
         todos.setLocation(0,0);
         todos.setSize(1280,720);
         todos.setIcon(todosicon);
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
     void initializePanel()
