@@ -1,7 +1,9 @@
+import java.awt.*;
+import java.io.IOException;
+
 public class Main
 {
-    public static void main(String[]args)
-    {
+    public static void main(String[]args) throws IOException, FontFormatException {
         //PASSWORDS CAN NOT INCLUDE '#' ',' or '&' symbols in sequence.
         //see Passwords class for more details
 
@@ -17,7 +19,7 @@ public class Main
         SampleGroupManager.addGroup(new Group("Test Group D"));
 
 
-      //  testUI ui = new testUI(SampleGroupManager);
+       //testUI ui = new testUI(SampleGroupManager);
         OpenSesameUI ui = new OpenSesameUI();
 
     }
