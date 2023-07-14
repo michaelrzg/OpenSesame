@@ -13,6 +13,9 @@ public class OpenSesameUI {
      JLabel groupsBackground = new JLabel();
      static ImageIcon groupsBacking = new ImageIcon("res/GroupsBackground.png");
 
+     static JLabel todos = new JLabel();
+     static ImageIcon todosicon = new ImageIcon("res/Group_5_2.png");
+
 
 
 
@@ -30,7 +33,7 @@ public class OpenSesameUI {
      void initializeObjects()
     {
 
-        frame.setSize(1280,720);
+        frame.setSize(1280,760);
         frame.setLocationRelativeTo(null);
         frame.add(panel);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -45,13 +48,17 @@ public class OpenSesameUI {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         OpenSesameIcon.setVisible(true);
-        OpenSesameIcon.setBounds(56,15,200,85);
+        OpenSesameIcon.setBounds(56,8,192,73);
         OpenSesameIcon.setIcon(openSesameLogo);
 
         groupsBackground.setIcon(groupsBacking);
         groupsBackground.setVisible(true);
-        groupsBackground.setBounds(60,129,240,559);
+        groupsBackground.setBounds(60,105,240,559);
 
+        todos.setVisible(true);
+        todos.setLocation(0,0);
+        todos.setSize(1280,720);
+        todos.setIcon(todosicon);
 
 
 
@@ -69,9 +76,10 @@ public class OpenSesameUI {
     void initializePanel()
     {
 
-        panel.add(OpenSesameIcon);
-        panel.add(groupsBackground);
-        panel.add(bar);
+        //panel.add(OpenSesameIcon);
+       // panel.add(groupsBackground);
+       // panel.add(bar);
+        panel.add(todos);
     }
 
 }
