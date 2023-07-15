@@ -19,7 +19,13 @@ public class OpenSesameUI {
      static JLabel todos = new JLabel();
      static ImageIcon todosicon = new ImageIcon("res/Group_7.png");
      static JButton text = new JButton();
-     static JLabel text2 = new JLabel("Hello",SwingConstants.CENTER);
+     static JLabel text2 = new JLabel("The Boys",SwingConstants.CENTER);
+      static JButton gruop2Button = new JButton();
+     static JLabel group2Label = new JLabel("The Infidels",SwingConstants.CENTER);
+     static JButton group3Button = new JButton();
+     static JLabel group3JLabel = new JLabel("Casamigos",SwingConstants.CENTER);
+     static JButton group4Button = new JButton();
+     static JLabel group4JLabel = new JLabel("The Smith Dynasty",SwingConstants.CENTER);
 
 
      JScrollBar bar = new JScrollBar();
@@ -80,6 +86,50 @@ public class OpenSesameUI {
          text2.setOpaque(false);
          text2.setFont(derivedOpenSansFont);
 
+           gruop2Button.setIcon(new ImageIcon("res/groupButton.png"));
+        gruop2Button.setFont(derivedOpenSansFont);
+        gruop2Button.setBounds(72,258,200,42);
+        gruop2Button.setVisible(true);
+        gruop2Button.setOpaque(true);
+        gruop2Button.setContentAreaFilled(false);
+         gruop2Button.setBorderPainted(false);
+         gruop2Button.setFocusPainted(false);
+
+          group2Label.setBounds(72,258,200,42);
+         group2Label.setVisible(true);
+         group2Label.setOpaque(false);
+         group2Label.setFont(derivedOpenSansFont);
+
+        group3Button.setFont(derivedOpenSansFont);
+        group3Button.setBounds(72,324,200,42);
+        group3Button.setVisible(true);
+        group3Button.setOpaque(true);
+        group3Button.setContentAreaFilled(false);
+         group3Button.setBorderPainted(false);
+         group3Button.setFocusPainted(false);
+        group3Button.setIcon(new ImageIcon("res/groupButton.png"));
+      
+          group3JLabel.setBounds(72,324,200,42);
+         group3JLabel.setVisible(true);
+         group3JLabel.setOpaque(false);
+         group3JLabel.setFont(derivedOpenSansFont);
+
+        group4Button.setFont(derivedOpenSansFont);
+        group4Button.setBounds(72,390,200,42);
+        group4Button.setVisible(true);
+        group4Button.setOpaque(true);
+        group4Button.setContentAreaFilled(false);
+         group4Button.setBorderPainted(false);
+         group4Button.setFocusPainted(false);
+        group4Button.setIcon(new ImageIcon("res/groupButton.png"));
+      
+          group4JLabel.setBounds(72,390,200,42);
+         group4JLabel.setVisible(true);
+         group4JLabel.setOpaque(false);
+         group4JLabel.setFont(derivedOpenSansFont);
+
+
+
 
 
 
@@ -87,9 +137,15 @@ public class OpenSesameUI {
 
     }
     void initializePanel()
-    {
+    {  
         panel.add(text);
         panel.add(text2);
+        panel.add(group2Label);
+        panel.add(gruop2Button);
+        panel.add(group3Button);
+        panel.add(group3JLabel);
+      panel.add(group4Button);
+        panel.add(group4JLabel);
         //panel.add(OpenSesameIcon);
         //panel.add(groupsBackground);
        // panel.add(bar);
