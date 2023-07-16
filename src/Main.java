@@ -3,7 +3,7 @@ import java.io.IOException;
 
 public class Main
 {
-    public static void main(String[]args) throws IOException, FontFormatException {
+    public static void main(String[]args) throws IOException, FontFormatException, InterruptedException {
         //PASSWORDS CAN NOT INCLUDE '#' ',' or '&' symbols in sequence.
         //see Passwords class for more details
 

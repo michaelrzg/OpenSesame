@@ -1,11 +1,11 @@
 public class Platform {
     public String platformName;
-    private String platformUsername;
+    public String platformUsername;
     public Password encryptedPlatformPassword;
-    private int encyrptkey;
+    public int encyrptkey;
 
 
-    Platform(String platformName, String platformUsername,Password encryptedPlatformPassword, int encyrptkey)
+    Platform(String platformName, String platformUsername,Password encryptedPlatformPassword)
     {
         this.platformName=platformName;
         this.encryptedPlatformPassword = encryptedPlatformPassword;

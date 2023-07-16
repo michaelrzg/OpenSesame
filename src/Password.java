@@ -11,10 +11,10 @@ public class Password {
         switch (encryptMethodID)
         {
             case 0:
-                encryptedPass = encryptMethod0(originalPass);
+                encryptedPass = encryptMethod2(originalPass);
                 break;
             case 1:
-                encryptedPass = encryptMethod1(originalPass);
+                encryptedPass = encryptMethod2(originalPass);
                 break;
             case 2: encryptedPass = encryptMethod2(originalPass);
                 break;
@@ -134,8 +134,18 @@ public class Password {
     {
         switch(encryptMethodID)
         {
-            case 0: return decryptMethod0(encryptedPass);
-            case 1: return decryptMethod1(encryptedPass);
+            case 0: return decryptMethod2(encryptedPass);
+            case 1: return decryptMethod2(encryptedPass);
+            case 2 : return decryptMethod2(encryptedPass);
+        }
+        return null;
+    }
+    public String decryptPassword()
+    {
+        switch(encryptMethodID)
+        {
+            case 0: return decryptMethod2(encryptedPass);
+            case 1: return decryptMethod2(encryptedPass);
             case 2 : return decryptMethod2(encryptedPass);
         }
         return null;

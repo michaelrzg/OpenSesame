@@ -22,7 +22,7 @@ public class PasswordManager
             Password temp = new Password();
             String [] line = sc.nextLine().split(",");
             temp.setPassword(line[2], Integer.parseInt(line[3]));
-            passwords.add(new Platform(line[0],line[1],temp,Integer.parseInt(line[3])));
+            passwords.add(new Platform(line[0],line[1],temp));
             // 0 : platformName 1: username for platform 2: encryptedPassword 3: encryptionID
             //example data : netflix,username,encryptedpass,1
 
