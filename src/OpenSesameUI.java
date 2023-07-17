@@ -406,7 +406,7 @@ public class OpenSesameUI {
          currentGroupLabel.setBounds(650,45,200,42);
          currentGroupLabel.setFont(new Font("OpenSans", Font.BOLD,30));
 
-
+        frame.getRootPane().setDefaultButton(loginButton);
 
 
 
