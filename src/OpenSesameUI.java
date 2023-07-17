@@ -28,7 +28,7 @@ public class OpenSesameUI {
 
      static JButton group1Button = new JButton();
      static String group1Name =  "The Boys";
-     static String group2Name = "The Infidels";
+     static String group2Name = "The Belligerents";
      static String group3Name = "Casamigos";
      static String group4Name = "The Dynasty";
      static JLabel group1Label = new JLabel(group1Name,SwingConstants.CENTER);
@@ -46,6 +46,10 @@ public class OpenSesameUI {
             new FileInputStream("res/OpenSans-Light.ttf") );
     Font derivedOpenSansFontBold = openSansBold.deriveFont(Font.BOLD,15);
     Font derivedOpenSansFont = openSans.deriveFont(Font.BOLD,15);
+
+    ImageIcon settingsIcon = new ImageIcon("res/settingsIcon.png");
+    JButton settingsButton = new JButton();
+
 
     Platform [] group1Platforms = {new Platform("Netflix","timmy2001", new Password("password123"))
             ,new Platform("Hulu","EddyRichtofen",new Password("password123")),
@@ -76,8 +80,8 @@ public class OpenSesameUI {
 
     OpenSesameUI() throws IOException, FontFormatException, InterruptedException {
 
-       initializePanel();
-       Thread.sleep(5);
+        initializePanel();
+        Thread.sleep(5);
         initializeObjects();
         login();
 
@@ -88,9 +92,9 @@ public class OpenSesameUI {
         boolean passmatch = true;
         for(int i=0;i<3;i++)
         {
-            if(p[i]!= pass[i])
-            {
-                passmatch=false;
+            if (p[i] != pass[i]) {
+                passmatch = false;
+                break;
             }
         }
         return user.equals("dev") && passmatch;
@@ -204,6 +208,7 @@ public class OpenSesameUI {
         group4JLabel.setVisible(true);
         pleaseSelectGrooup.setVisible(true);
         currentGroupLabel.setVisible(true);
+        settingsButton.setVisible(true);
 
     }
 
@@ -239,12 +244,23 @@ public class OpenSesameUI {
          group4JLabel.setVisible(false);
          pleaseSelectGrooup.setVisible(false);
          currentGroupLabel.setVisible(false);
+         settingsButton.setVisible(false);
        // groupsBackground.setIcon(groupsBacking);
 
         groupsBackground.setBounds(60,105,240,559);
         groupsBackground.setText("hello");
         groupsBackground.setFont(openSansBold);
 
+        settingsButton.setBounds(1170,50,40,40);
+        settingsButton.setIcon(settingsIcon);
+        settingsButton.setFocusPainted(false);
+        settingsButton.setOpaque(false);
+        settingsButton.setContentAreaFilled(false);
+        settingsButton.setBorderPainted(false);
+        settingsButton.addActionListener(e->
+        {
+            System.out.println("Settings Pressed");
+        });
 
         todos.setLocation(0,0);
         todos.setSize(1280,720);
@@ -409,10 +425,11 @@ public class OpenSesameUI {
         panel.add(usernameField);
         panel.add(passwordField);
         panel.add(login);
+        panel.add(settingsButton);
         panel.add(group1Button);
         panel.add(group1Label);
-        panel.add(group2Label);
         panel.add(gruop2Button);
+        panel.add(group2Label);
         panel.add(group3Button);
         panel.add(group3JLabel);
       panel.add(group4Button);
