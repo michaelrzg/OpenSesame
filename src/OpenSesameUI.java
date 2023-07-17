@@ -147,6 +147,7 @@ public class OpenSesameUI {
 
         passwordField.setBounds(555,362,180,38);
         char c =0;
+        char [] empty = {};
         char [] defaultSet = {' ',' '  ,' '  ,' '  ,' '  ,' '  ,' '  ,' '  ,' '  ,' '  ,' '  ,' '  ,'P','a','s','s','w','o','r','d'};
         passwordField.setEchoChar(c);
         passwordField.setOpaque(false);
@@ -165,8 +166,10 @@ public class OpenSesameUI {
 
             @Override
             public void focusLost(FocusEvent e) {
-                if(passwordField.getPassword().equals(""))
+
+                if(passwordField.getPassword().length==0)
                 {
+                    passwordField.setEchoChar(c);
                     passwordField.setText("            Password");
                 }
             }
