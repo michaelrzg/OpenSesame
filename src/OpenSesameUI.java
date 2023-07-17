@@ -277,7 +277,7 @@ public class OpenSesameUI {
         {
             for(JLabel j : i)
             {
-                panel.add(j);System.out.println("here");
+                panel.add(j);
             }
 
         }
