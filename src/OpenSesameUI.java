@@ -581,7 +581,7 @@ public class OpenSesameUI {
          Platform2Image.setBounds(1350,376,200,50);
 
          Platform2TextField.setFont(new Font("OpenSans", Font.PLAIN,10));
-         Platform2TextField.setText("           Platform 1");
+         Platform2TextField.setText("           Platform 2");
          Platform2TextField.setBounds(1355,382,200,40);
 
          Platform2TextField.setOpaque(false);
@@ -590,7 +590,7 @@ public class OpenSesameUI {
          Platform2TextField.addFocusListener(new FocusListener() {
              @Override
              public void focusGained(FocusEvent e) {
-                 if(Platform2TextField.getText().equals("           Platform 1")){
+                 if(Platform2TextField.getText().equals("           Platform 2")){
                      Platform2TextField.setText("");
                  }
              }
@@ -599,7 +599,7 @@ public class OpenSesameUI {
              public void focusLost(FocusEvent e) {
                  if(Platform2TextField.getText().equals(""))
                  {
-                     Platform2TextField.setText("           Platform 1");
+                     Platform2TextField.setText("           Platform 2");
                  }
              }
          });
@@ -608,7 +608,7 @@ public class OpenSesameUI {
          Username2Image.setBounds(1350,411,200,50);
 
          Username2TextField.setFont(new Font("OpenSans", Font.PLAIN,10));
-         Username2TextField.setText("          Username 1");
+         Username2TextField.setText("          Username 2");
          Username2TextField.setBounds(1355,417,200,40);
 
          Username2TextField.setOpaque(false);
@@ -617,7 +617,7 @@ public class OpenSesameUI {
          Username2TextField.addFocusListener(new FocusListener() {
              @Override
              public void focusGained(FocusEvent e) {
-                 if(Username2TextField.getText().equals("          Username 1")){
+                 if(Username2TextField.getText().equals("          Username 2")){
                      Username2TextField.setText("");
                  }
              }
@@ -626,7 +626,7 @@ public class OpenSesameUI {
              public void focusLost(FocusEvent e) {
                  if(Username2TextField.getText().equals(""))
                  {
-                     Username2TextField.setText("          Username 1");
+                     Username2TextField.setText("          Username 2");
                  }
              }
          });
@@ -635,7 +635,7 @@ public class OpenSesameUI {
          Password2Image.setBounds(1350,446,200,50);
 
          password2TextField.setFont(new Font("OpenSans", Font.PLAIN,10));
-         password2TextField.setText("          Password 1");
+         password2TextField.setText("          Password 2");
          password2TextField.setBounds(1355,452,200,40);
 
          password2TextField.setOpaque(false);
