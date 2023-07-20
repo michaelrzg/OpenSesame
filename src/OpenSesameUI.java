@@ -47,8 +47,32 @@ public class OpenSesameUI {
     Font derivedOpenSansFontBold = openSansBold.deriveFont(Font.BOLD,15);
     Font derivedOpenSansFont = openSans.deriveFont(Font.BOLD,15);
 
-    ImageIcon settingsIcon = new ImageIcon("res/settingsIcon.png");
-    JButton settingsButton = new JButton();
+    ImageIcon AddGroups = new ImageIcon("res/groupIcon.png");
+    JButton AddGroupsButton = new JButton();
+
+    static JLabel createNewGroupContainer = new JLabel();
+    static JLabel createAGroupLabel = new JLabel("Create a Group");
+    static JLabel DataLabel = new JLabel("", SwingConstants.CENTER);
+    static JLabel newGroupNameImage = new JLabel();
+    static JTextField newGroupNameTextField = new JTextField();
+    static JTextField Platform1TextField = new JTextField();
+    static JLabel Platform1Image = new JLabel();
+
+    static JTextField Username1TextField = new JTextField();
+    static JLabel Username1Image = new JLabel();
+    static JPasswordField password1TextField = new JPasswordField();
+    static JLabel Password1Image = new JLabel();
+
+    static JTextField Platform2TextField = new JTextField();
+    static JLabel Platform2Image = new JLabel();
+
+    static JTextField Username2TextField = new JTextField();
+    static JLabel Username2Image = new JLabel();
+    static JPasswordField password2TextField = new JPasswordField();
+    static JLabel Password2Image = new JLabel();
+    static JButton createGroup = new JButton();
+    static JLabel createGroupLabel =new JLabel("Create", SwingConstants.CENTER);
+
 
 
     Platform [] group1Platforms = {new Platform("Netflix","timmy2001", new Password("password123"))
@@ -208,7 +232,20 @@ public class OpenSesameUI {
         group4JLabel.setVisible(true);
         pleaseSelectGrooup.setVisible(true);
         currentGroupLabel.setVisible(true);
-        settingsButton.setVisible(true);
+        AddGroupsButton.setVisible(true);
+        createNewGroupContainer.setVisible(true);
+        createAGroupLabel.setVisible(true);
+        newGroupNameImage.setVisible(true);
+        DataLabel.setVisible(true);
+        newGroupNameTextField.setVisible(true);
+        Platform1TextField.setVisible(true);
+        Platform1Image.setVisible(true);
+        Username1Image.setVisible(true);
+        Username1TextField.setVisible(true);
+        Password1Image.setVisible(true);
+        password1TextField.setVisible(true);
+        createGroup.setVisible(true);
+        createGroupLabel.setVisible(true);
 
     }
 
@@ -244,22 +281,23 @@ public class OpenSesameUI {
          group4JLabel.setVisible(false);
          pleaseSelectGrooup.setVisible(false);
          currentGroupLabel.setVisible(false);
-         settingsButton.setVisible(false);
+         AddGroupsButton.setVisible(false);
        // groupsBackground.setIcon(groupsBacking);
 
         groupsBackground.setBounds(60,105,240,559);
         groupsBackground.setText("hello");
         groupsBackground.setFont(openSansBold);
 
-        settingsButton.setBounds(1170,50,40,40);
-        settingsButton.setIcon(settingsIcon);
-        settingsButton.setFocusPainted(false);
-        settingsButton.setOpaque(false);
-        settingsButton.setContentAreaFilled(false);
-        settingsButton.setBorderPainted(false);
-        settingsButton.addActionListener(e->
+        AddGroupsButton.setBounds(1170,50,40,40);
+        AddGroupsButton.setIcon(AddGroups);
+        AddGroupsButton.setFocusPainted(false);
+        AddGroupsButton.setOpaque(false);
+        AddGroupsButton.setContentAreaFilled(false);
+        AddGroupsButton.setBorderPainted(false);
+        AddGroupsButton.addActionListener(e->
         {
-            System.out.println("Settings Pressed");
+            System.out.println("addGroups Pressed");
+            CreateNewGroupOpenAnimation();
         });
 
         todos.setLocation(0,0);
@@ -406,7 +444,221 @@ public class OpenSesameUI {
          currentGroupLabel.setBounds(650,45,200,42);
          currentGroupLabel.setFont(new Font("OpenSans", Font.BOLD,30));
 
+         createNewGroupContainer.setBounds(1280,103,400,620);
+         createNewGroupContainer.setIcon(new ImageIcon("res/GroupsBackground.png"));
+
+         createAGroupLabel.setFont(new Font("OpenSans", Font.PLAIN, 20));
+         createAGroupLabel.setBounds(1350,125,200,50);
+
+
+
+
         frame.getRootPane().setDefaultButton(loginButton);
+
+        DataLabel.setFont(new Font("OpenSans", Font.PLAIN, 15));
+        DataLabel.setBounds(1350,160,200,50);
+        DataLabel.setText("Name:");
+
+        newGroupNameImage.setIcon(new ImageIcon("res/TextBox.png"));
+        newGroupNameImage.setBounds(1350,190,200,50);
+
+        newGroupNameTextField.setFont(new Font("OpenSans", Font.PLAIN,10));
+        newGroupNameTextField.setText("Enter Group Name");
+        newGroupNameTextField.setBounds(1355,196,200,40);
+
+         newGroupNameTextField.setOpaque(false);
+         newGroupNameTextField.setFont(derivedOpenSansFont);
+         newGroupNameTextField.setBorder(BorderFactory.createEmptyBorder());
+         newGroupNameTextField.addFocusListener(new FocusListener() {
+             @Override
+             public void focusGained(FocusEvent e) {
+                 if(newGroupNameTextField.getText().equals("    Enter Group Name")){
+                     newGroupNameTextField.setText("");
+                 }
+             }
+
+             @Override
+             public void focusLost(FocusEvent e) {
+                 if(newGroupNameImage.getText().equals(""))
+                 {
+                     newGroupNameTextField.setText("    Enter Group Name");
+                 }
+             }
+         });
+
+         Platform1Image.setIcon(new ImageIcon("res/TextBox.png"));
+        Platform1Image.setBounds(1350,250,200,50);
+
+        Platform1TextField.setFont(new Font("OpenSans", Font.PLAIN,10));
+        Platform1TextField.setText("           Platform 1");
+        Platform1TextField.setBounds(1355,256,200,40);
+
+         Platform1TextField.setOpaque(false);
+         Platform1TextField.setFont(derivedOpenSansFont);
+         Platform1TextField.setBorder(BorderFactory.createEmptyBorder());
+         Platform1TextField.addFocusListener(new FocusListener() {
+             @Override
+             public void focusGained(FocusEvent e) {
+                 if(Platform1TextField.getText().equals("           Platform 1")){
+                     Platform1TextField.setText("");
+                 }
+             }
+
+             @Override
+             public void focusLost(FocusEvent e) {
+                 if(Platform1TextField.getText().equals(""))
+                 {
+                     Platform1TextField.setText("           Platform 1");
+                 }
+             }
+         });
+
+        Username1Image.setIcon(new ImageIcon("res/TextBox.png"));
+        Username1Image.setBounds(1350,285,200,50);
+
+        Username1TextField.setFont(new Font("OpenSans", Font.PLAIN,10));
+        Username1TextField.setText("          Username 1");
+        Username1TextField.setBounds(1355,291,200,40);
+
+         Username1TextField.setOpaque(false);
+         Username1TextField.setFont(derivedOpenSansFont);
+         Username1TextField.setBorder(BorderFactory.createEmptyBorder());
+         Username1TextField.addFocusListener(new FocusListener() {
+             @Override
+             public void focusGained(FocusEvent e) {
+                 if(Username1TextField.getText().equals("          Username 1")){
+                     Username1TextField.setText("");
+                 }
+             }
+
+             @Override
+             public void focusLost(FocusEvent e) {
+                 if(Username1TextField.getText().equals(""))
+                 {
+                     Username1TextField.setText("          Username 1");
+                 }
+             }
+         });
+
+         Password1Image.setIcon(new ImageIcon("res/TextBox.png"));
+         Password1Image.setBounds(1350,320,200,50);
+         char zero = 0;
+         password1TextField.setFont(new Font("OpenSans", Font.PLAIN,10));
+         password1TextField.setText("          Password 1");
+         password1TextField.setBounds(1355,326,200,40);
+
+         password1TextField.setOpaque(false);
+         password1TextField.setFont(derivedOpenSansFont);
+         password1TextField.setBorder(BorderFactory.createEmptyBorder());
+         password1TextField.setEchoChar(zero);
+         password1TextField.addFocusListener(new FocusListener() {
+             @Override
+             public void focusGained(FocusEvent e) {
+
+                 password1TextField.setText("");
+                 password1TextField.setEchoChar('*');
+             }
+
+             @Override
+             public void focusLost(FocusEvent e) {
+
+             }
+         });
+
+         createGroup.setIcon(new ImageIcon("res/groupButton.png"));
+         createGroup.setBounds(1350,600,200,50);
+         createGroup.setOpaque(false);
+         createGroup.setBorder(BorderFactory.createEmptyBorder());
+         createGroup.setContentAreaFilled(false);
+         createGroup.setFocusPainted(false);
+
+         createGroupLabel.setBounds(1350,600,200,50);
+         createGroupLabel.setFont(new Font("OpenSans", Font.PLAIN, 18));
+
+
+
+         Platform2Image.setIcon(new ImageIcon("res/TextBox.png"));
+         Platform2Image.setBounds(1350,376,200,50);
+
+         Platform2TextField.setFont(new Font("OpenSans", Font.PLAIN,10));
+         Platform2TextField.setText("           Platform 1");
+         Platform2TextField.setBounds(1355,382,200,40);
+
+         Platform2TextField.setOpaque(false);
+         Platform2TextField.setFont(derivedOpenSansFont);
+         Platform2TextField.setBorder(BorderFactory.createEmptyBorder());
+         Platform2TextField.addFocusListener(new FocusListener() {
+             @Override
+             public void focusGained(FocusEvent e) {
+                 if(Platform2TextField.getText().equals("           Platform 1")){
+                     Platform2TextField.setText("");
+                 }
+             }
+
+             @Override
+             public void focusLost(FocusEvent e) {
+                 if(Platform2TextField.getText().equals(""))
+                 {
+                     Platform2TextField.setText("           Platform 1");
+                 }
+             }
+         });
+
+         Username2Image.setIcon(new ImageIcon("res/TextBox.png"));
+         Username2Image.setBounds(1350,411,200,50);
+
+         Username2TextField.setFont(new Font("OpenSans", Font.PLAIN,10));
+         Username2TextField.setText("          Username 1");
+         Username2TextField.setBounds(1355,417,200,40);
+
+         Username2TextField.setOpaque(false);
+         Username2TextField.setFont(derivedOpenSansFont);
+         Username2TextField.setBorder(BorderFactory.createEmptyBorder());
+         Username2TextField.addFocusListener(new FocusListener() {
+             @Override
+             public void focusGained(FocusEvent e) {
+                 if(Username2TextField.getText().equals("          Username 1")){
+                     Username2TextField.setText("");
+                 }
+             }
+
+             @Override
+             public void focusLost(FocusEvent e) {
+                 if(Username2TextField.getText().equals(""))
+                 {
+                     Username2TextField.setText("          Username 1");
+                 }
+             }
+         });
+
+         Password2Image.setIcon(new ImageIcon("res/TextBox.png"));
+         Password2Image.setBounds(1350,446,200,50);
+
+         password2TextField.setFont(new Font("OpenSans", Font.PLAIN,10));
+         password2TextField.setText("          Password 1");
+         password2TextField.setBounds(1355,452,200,40);
+
+         password2TextField.setOpaque(false);
+         password2TextField.setFont(derivedOpenSansFont);
+         password2TextField.setBorder(BorderFactory.createEmptyBorder());
+         password2TextField.setEchoChar(zero);
+         password2TextField.addFocusListener(new FocusListener() {
+             @Override
+             public void focusGained(FocusEvent e) {
+
+                 password2TextField.setText("");
+                 password2TextField.setEchoChar('*');
+             }
+
+             @Override
+             public void focusLost(FocusEvent e) {
+
+             }
+         });
+
+
+
+
 
 
 
@@ -420,21 +672,42 @@ public class OpenSesameUI {
 
     }
     void initializePanel() throws InterruptedException {
-        panel.add(loginButton);
 
+        panel.add(createGroupLabel);
+        panel.add(createGroup);
+        panel.add(Platform1TextField);
+        panel.add(Platform2TextField);
+        panel.add(Platform2Image);
+        panel.add(Platform1Image);
+        panel.add(password1TextField);
+        panel.add(password2TextField);
+        panel.add(Password1Image);
+        panel.add(Password2Image);
+        panel.add(Username1TextField);
+        panel.add(Username2TextField);
+        panel.add(Username1Image);
+        panel.add(Username2Image);
+        panel.add(newGroupNameTextField);
+        panel.add(createAGroupLabel);
+        panel.add(newGroupNameImage);
+        panel.add(DataLabel);
+
+        panel.add(loginButton);
+        panel.add(createNewGroupContainer);
         panel.add(usernameField);
         panel.add(passwordField);
         panel.add(login);
-        panel.add(settingsButton);
+        panel.add(AddGroupsButton);
         panel.add(group1Button);
         panel.add(group1Label);
         panel.add(gruop2Button);
         panel.add(group2Label);
         panel.add(group3Button);
         panel.add(group3JLabel);
-      panel.add(group4Button);
+        panel.add(group4Button);
         panel.add(group4JLabel);
         panel.add(currentGroupLabel);
+
         for(JLabel[] i : slots)
         {
             for(JLabel j : i)
@@ -466,6 +739,12 @@ public class OpenSesameUI {
             slots[i][2].setText(platforms[i].encryptedPlatformPassword.decryptPassword());
 
         }
+    }
+    void CreateNewGroupOpenAnimation ()
+    {
+        CreateNewGroupAnimation animation = new CreateNewGroupAnimation();
+        Thread thread = new Thread(animation);
+        thread.start();
     }
 
 
