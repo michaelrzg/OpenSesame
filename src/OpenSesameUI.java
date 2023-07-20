@@ -49,6 +49,9 @@ public class OpenSesameUI {
 
     ImageIcon AddGroups = new ImageIcon("res/groupIcon.png");
     JButton AddGroupsButton = new JButton();
+    JButton AddGroupsButton2 = new JButton();
+
+
 
     static JLabel createNewGroupContainer = new JLabel();
     static JLabel createAGroupLabel = new JLabel("Create a Group");
@@ -122,7 +125,7 @@ public class OpenSesameUI {
         return user.equals("dev") && passmatch;
     }
     public void login()
-    {
+    {   AddGroupsButton2.setVisible(false);
         login.setLocation(0,0);
         login.setSize(1280,720);
         login.setIcon(loginIcon);
@@ -244,6 +247,7 @@ public class OpenSesameUI {
         password1TextField.setVisible(false);
         createGroup.setVisible(false);
         createGroupLabel.setVisible(false);
+        AddGroupsButton2.setVisible(true);
 
     }
 
@@ -305,7 +309,14 @@ public class OpenSesameUI {
         groupsBackground.setText("hello");
         groupsBackground.setFont(openSansBold);
 
-        AddGroupsButton.setBounds(225,625,45,45);
+         AddGroupsButton2.setBounds(1147,628,45,45);
+         AddGroupsButton2.setIcon(new ImageIcon("res/plusIcon.png"));
+         AddGroupsButton2.setFocusPainted(false);
+         AddGroupsButton2.setOpaque(false);
+         AddGroupsButton2.setContentAreaFilled(false);
+         AddGroupsButton2.setBorderPainted(false);
+
+        AddGroupsButton.setBounds(227,627,45,45);
         AddGroupsButton.setIcon(new ImageIcon("res/plusIcon.png"));
         AddGroupsButton.setFocusPainted(false);
         AddGroupsButton.setOpaque(false);
@@ -482,7 +493,7 @@ public class OpenSesameUI {
 
         newGroupNameTextField.setFont(new Font("OpenSans", Font.PLAIN,10));
         newGroupNameTextField.setText("        Enter Group Name");
-        newGroupNameTextField.setBounds(75,196,200,40);
+        newGroupNameTextField.setBounds(82,196,200,40);
 
          newGroupNameTextField.setOpaque(false);
          newGroupNameTextField.setFont(derivedOpenSansFont);
@@ -743,7 +754,7 @@ public class OpenSesameUI {
     }
 
     void initializePanel() throws InterruptedException {
-
+        panel.add(AddGroupsButton2);
         panel.add(createGroupLabel);
         panel.add(exitButton);
         panel.add(createGroup);
