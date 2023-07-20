@@ -30,7 +30,7 @@ public class OpenSesameUI {
      static String group1Name =  "The Boys";
      static String group2Name = "The Belligerents";
      static String group3Name = "Casamigos";
-     static String group4Name = "The Dynasty";
+     static String group4Name = "";
      static JLabel group1Label = new JLabel(group1Name,SwingConstants.CENTER);
       static JButton gruop2Button = new JButton();
      static JLabel group2Label = new JLabel(group2Name,SwingConstants.CENTER);
@@ -87,9 +87,7 @@ public class OpenSesameUI {
             new Platform("Snapchat", "PeteMccain", new Password("password123")),
             new Platform("Twitter", "theShadowMan",new Password("password123"))};
 
-    Platform [] group4Platforms = {new Platform("Walmart+", "SaveMore", new Password("password123")),
-            new Platform("ChickFilA", "BiscuitLover123", new Password("password123")),
-            new Platform("McDonalds", "BigMacMan",new Password("password123"))};
+
     JLabel [][] slots = {
             {new JLabel(),new JLabel(), new JLabel(),new JLabel()},
             {new JLabel(),new JLabel(), new JLabel(),new JLabel()},
@@ -228,28 +226,47 @@ public class OpenSesameUI {
         group2Label.setVisible(true);
         group3Button.setVisible(true);
         group3JLabel.setVisible(true);
-        group4Button.setVisible(true);
+        group4Button.setVisible(false);
         group4JLabel.setVisible(true);
         pleaseSelectGrooup.setVisible(true);
         currentGroupLabel.setVisible(true);
         AddGroupsButton.setVisible(true);
-        createNewGroupContainer.setVisible(true);
-        createAGroupLabel.setVisible(true);
-        newGroupNameImage.setVisible(true);
-        DataLabel.setVisible(true);
-        newGroupNameTextField.setVisible(true);
-        Platform1TextField.setVisible(true);
-        Platform1Image.setVisible(true);
-        Username1Image.setVisible(true);
-        Username1TextField.setVisible(true);
-        Password1Image.setVisible(true);
-        password1TextField.setVisible(true);
-        createGroup.setVisible(true);
-        createGroupLabel.setVisible(true);
+        createNewGroupContainer.setVisible(false);
+        createAGroupLabel.setVisible(false);
+        newGroupNameImage.setVisible(false);
+        DataLabel.setVisible(false);
+        newGroupNameTextField.setVisible(false);
+        Platform1TextField.setVisible(false);
+        Platform1Image.setVisible(false);
+        Username1Image.setVisible(false);
+        Username1TextField.setVisible(false);
+        Password1Image.setVisible(false);
+        password1TextField.setVisible(false);
+        createGroup.setVisible(false);
+        createGroupLabel.setVisible(false);
 
     }
 
      void initializeObjects() throws IOException, FontFormatException {
+         createNewGroupContainer.setVisible(false);
+         createAGroupLabel.setVisible(false);
+         newGroupNameImage.setVisible(false);
+         DataLabel.setVisible(false);
+         newGroupNameTextField.setVisible(false);
+         Platform1TextField.setVisible(false);
+         Platform2TextField.setVisible(false);
+         Platform1Image.setVisible(false);
+         Platform2Image.setVisible(false);
+         Username2Image.setVisible(false);
+         Username1Image.setVisible(false);
+         Username2TextField.setVisible(false);
+         Username1TextField.setVisible(false);
+         Password2Image.setVisible(false);
+         Password1Image.setVisible(false);
+         password2TextField.setVisible(false);
+         password1TextField.setVisible(false);
+         createGroup.setVisible(false);
+         createGroupLabel.setVisible(false);
 
         frame.setSize(1280,760);
         frame.setLocationRelativeTo(null);
@@ -288,8 +305,8 @@ public class OpenSesameUI {
         groupsBackground.setText("hello");
         groupsBackground.setFont(openSansBold);
 
-        AddGroupsButton.setBounds(1170,50,40,40);
-        AddGroupsButton.setIcon(AddGroups);
+        AddGroupsButton.setBounds(215,615,40,40);
+        AddGroupsButton.setIcon(new ImageIcon("res/plusIcon1.png"));
         AddGroupsButton.setFocusPainted(false);
         AddGroupsButton.setOpaque(false);
         AddGroupsButton.setContentAreaFilled(false);
@@ -370,12 +387,13 @@ public class OpenSesameUI {
          group4Button.addActionListener(e -> {
 
              pleaseSelectGrooup.setVisible(false);
-             drawData(group4Platforms);
+
              currentGroupLabel.setText(group4Name);
          });
       
           group4JLabel.setBounds(72,390,200,42);
          group4JLabel.setOpaque(false);
+         group4JLabel.setVisible(false);
          group4JLabel.setFont(derivedOpenSansFontBold);
 
          slots[0][0].setBounds(400,192,200,42);
@@ -444,11 +462,11 @@ public class OpenSesameUI {
          currentGroupLabel.setBounds(650,45,200,42);
          currentGroupLabel.setFont(new Font("OpenSans", Font.BOLD,30));
 
-         createNewGroupContainer.setBounds(1280,103,400,620);
-         createNewGroupContainer.setIcon(new ImageIcon("res/GroupsBackground.png"));
+         createNewGroupContainer.setBounds(52,103,400,620);
+         createNewGroupContainer.setIcon(new ImageIcon("res/Group_8.png"));
 
-         createAGroupLabel.setFont(new Font("OpenSans", Font.PLAIN, 20));
-         createAGroupLabel.setBounds(1350,125,200,50);
+         //createAGroupLabel.setFont(new Font("OpenSans", Font.PLAIN, 20));
+         //createAGroupLabel.setBounds(105,125,200,50);
 
 
 
@@ -456,15 +474,15 @@ public class OpenSesameUI {
         frame.getRootPane().setDefaultButton(loginButton);
 
         DataLabel.setFont(new Font("OpenSans", Font.PLAIN, 15));
-        DataLabel.setBounds(1350,160,200,50);
+        DataLabel.setBounds(75,160,200,50);
         DataLabel.setText("Name:");
 
         newGroupNameImage.setIcon(new ImageIcon("res/TextBox.png"));
-        newGroupNameImage.setBounds(1350,190,200,50);
+        newGroupNameImage.setBounds(75,190,200,50);
 
         newGroupNameTextField.setFont(new Font("OpenSans", Font.PLAIN,10));
-        newGroupNameTextField.setText("Enter Group Name");
-        newGroupNameTextField.setBounds(1355,196,200,40);
+        newGroupNameTextField.setText("        Enter Group Name");
+        newGroupNameTextField.setBounds(75,196,200,40);
 
          newGroupNameTextField.setOpaque(false);
          newGroupNameTextField.setFont(derivedOpenSansFont);
@@ -472,7 +490,7 @@ public class OpenSesameUI {
          newGroupNameTextField.addFocusListener(new FocusListener() {
              @Override
              public void focusGained(FocusEvent e) {
-                 if(newGroupNameTextField.getText().equals("    Enter Group Name")){
+                 if(newGroupNameTextField.getText().equals("          Enter Group Name")){
                      newGroupNameTextField.setText("");
                  }
              }
@@ -481,17 +499,17 @@ public class OpenSesameUI {
              public void focusLost(FocusEvent e) {
                  if(newGroupNameImage.getText().equals(""))
                  {
-                     newGroupNameTextField.setText("    Enter Group Name");
+                     newGroupNameTextField.setText("         Enter Group Name");
                  }
              }
          });
 
          Platform1Image.setIcon(new ImageIcon("res/TextBox.png"));
-        Platform1Image.setBounds(1350,250,200,50);
+        Platform1Image.setBounds(75,250,200,50);
 
         Platform1TextField.setFont(new Font("OpenSans", Font.PLAIN,10));
-        Platform1TextField.setText("           Platform 1");
-        Platform1TextField.setBounds(1355,256,200,40);
+        Platform1TextField.setText("             Platform 1");
+        Platform1TextField.setBounds(80,256,200,40);
 
          Platform1TextField.setOpaque(false);
          Platform1TextField.setFont(derivedOpenSansFont);
@@ -499,7 +517,7 @@ public class OpenSesameUI {
          Platform1TextField.addFocusListener(new FocusListener() {
              @Override
              public void focusGained(FocusEvent e) {
-                 if(Platform1TextField.getText().equals("           Platform 1")){
+                 if(Platform1TextField.getText().equals("             Platform 1")){
                      Platform1TextField.setText("");
                  }
              }
@@ -508,17 +526,17 @@ public class OpenSesameUI {
              public void focusLost(FocusEvent e) {
                  if(Platform1TextField.getText().equals(""))
                  {
-                     Platform1TextField.setText("           Platform 1");
+                     Platform1TextField.setText("             Platform 1");
                  }
              }
          });
 
         Username1Image.setIcon(new ImageIcon("res/TextBox.png"));
-        Username1Image.setBounds(1350,285,200,50);
+        Username1Image.setBounds(75,285,200,50);
 
         Username1TextField.setFont(new Font("OpenSans", Font.PLAIN,10));
-        Username1TextField.setText("          Username 1");
-        Username1TextField.setBounds(1355,291,200,40);
+        Username1TextField.setText("            Username 1");
+        Username1TextField.setBounds(80,291,200,40);
 
          Username1TextField.setOpaque(false);
          Username1TextField.setFont(derivedOpenSansFont);
@@ -526,7 +544,7 @@ public class OpenSesameUI {
          Username1TextField.addFocusListener(new FocusListener() {
              @Override
              public void focusGained(FocusEvent e) {
-                 if(Username1TextField.getText().equals("          Username 1")){
+                 if(Username1TextField.getText().equals("           Username 1")){
                      Username1TextField.setText("");
                  }
              }
@@ -535,17 +553,17 @@ public class OpenSesameUI {
              public void focusLost(FocusEvent e) {
                  if(Username1TextField.getText().equals(""))
                  {
-                     Username1TextField.setText("          Username 1");
+                     Username1TextField.setText("           Username 1");
                  }
              }
          });
 
          Password1Image.setIcon(new ImageIcon("res/TextBox.png"));
-         Password1Image.setBounds(1350,320,200,50);
+         Password1Image.setBounds(75,320,200,50);
          char zero = 0;
          password1TextField.setFont(new Font("OpenSans", Font.PLAIN,10));
-         password1TextField.setText("          Password 1");
-         password1TextField.setBounds(1355,326,200,40);
+         password1TextField.setText("            Password 1");
+         password1TextField.setBounds(80,326,200,40);
 
          password1TextField.setOpaque(false);
          password1TextField.setFont(derivedOpenSansFont);
@@ -565,24 +583,31 @@ public class OpenSesameUI {
              }
          });
 
-         createGroup.setIcon(new ImageIcon("res/groupButton.png"));
-         createGroup.setBounds(1350,600,200,50);
+         createGroup.setIcon(new ImageIcon("res/createButton.png"));
+         createGroup.setBounds(75,570,200,50);
          createGroup.setOpaque(false);
          createGroup.setBorder(BorderFactory.createEmptyBorder());
          createGroup.setContentAreaFilled(false);
          createGroup.setFocusPainted(false);
+         createGroup.addActionListener(e->
+         {
+             group4JLabel.setText(newGroupNameTextField.getText());
+             Platform [] group4Platforms = {new Platform("Walmart+", "SaveMore", new Password("password123")),
+                     new Platform("ChickFilA", "BiscuitLover123", new Password("password123"))};
 
-         createGroupLabel.setBounds(1350,600,200,50);
-         createGroupLabel.setFont(new Font("OpenSans", Font.PLAIN, 18));
+         });
+
+        // createGroupLabel.setBounds(75,600,200,50);
+         //createGroupLabel.setFont(new Font("OpenSans", Font.PLAIN, 18));
 
 
 
          Platform2Image.setIcon(new ImageIcon("res/TextBox.png"));
-         Platform2Image.setBounds(1350,376,200,50);
+         Platform2Image.setBounds(75,376,200,50);
 
          Platform2TextField.setFont(new Font("OpenSans", Font.PLAIN,10));
-         Platform2TextField.setText("           Platform 2");
-         Platform2TextField.setBounds(1355,382,200,40);
+         Platform2TextField.setText("              Platform 2");
+         Platform2TextField.setBounds(75,382,200,40);
 
          Platform2TextField.setOpaque(false);
          Platform2TextField.setFont(derivedOpenSansFont);
@@ -590,7 +615,7 @@ public class OpenSesameUI {
          Platform2TextField.addFocusListener(new FocusListener() {
              @Override
              public void focusGained(FocusEvent e) {
-                 if(Platform2TextField.getText().equals("           Platform 2")){
+                 if(Platform2TextField.getText().equals("              Platform 2")){
                      Platform2TextField.setText("");
                  }
              }
@@ -599,17 +624,17 @@ public class OpenSesameUI {
              public void focusLost(FocusEvent e) {
                  if(Platform2TextField.getText().equals(""))
                  {
-                     Platform2TextField.setText("           Platform 2");
+                     Platform2TextField.setText("              Platform 2");
                  }
              }
          });
 
          Username2Image.setIcon(new ImageIcon("res/TextBox.png"));
-         Username2Image.setBounds(1350,411,200,50);
+         Username2Image.setBounds(75,411,200,50);
 
          Username2TextField.setFont(new Font("OpenSans", Font.PLAIN,10));
-         Username2TextField.setText("          Username 2");
-         Username2TextField.setBounds(1355,417,200,40);
+         Username2TextField.setText("             Username 2");
+         Username2TextField.setBounds(75,417,200,40);
 
          Username2TextField.setOpaque(false);
          Username2TextField.setFont(derivedOpenSansFont);
@@ -617,7 +642,7 @@ public class OpenSesameUI {
          Username2TextField.addFocusListener(new FocusListener() {
              @Override
              public void focusGained(FocusEvent e) {
-                 if(Username2TextField.getText().equals("          Username 2")){
+                 if(Username2TextField.getText().equals("             Username 2")){
                      Username2TextField.setText("");
                  }
              }
@@ -626,17 +651,17 @@ public class OpenSesameUI {
              public void focusLost(FocusEvent e) {
                  if(Username2TextField.getText().equals(""))
                  {
-                     Username2TextField.setText("          Username 2");
+                     Username2TextField.setText("             Username 2");
                  }
              }
          });
 
          Password2Image.setIcon(new ImageIcon("res/TextBox.png"));
-         Password2Image.setBounds(1350,446,200,50);
+         Password2Image.setBounds(75,446,200,50);
 
          password2TextField.setFont(new Font("OpenSans", Font.PLAIN,10));
-         password2TextField.setText("          Password 2");
-         password2TextField.setBounds(1355,452,200,40);
+         password2TextField.setText("            Password 2");
+         password2TextField.setBounds(80,451,200,40);
 
          password2TextField.setOpaque(false);
          password2TextField.setFont(derivedOpenSansFont);
@@ -742,9 +767,35 @@ public class OpenSesameUI {
     }
     void CreateNewGroupOpenAnimation ()
     {
-        CreateNewGroupAnimation animation = new CreateNewGroupAnimation();
-        Thread thread = new Thread(animation);
-        thread.start();
+        OpenSesameUI.createNewGroupContainer.setVisible(true);
+        OpenSesameUI.createAGroupLabel.setVisible(true);
+        OpenSesameUI.DataLabel.setVisible(true);
+
+        OpenSesameUI.newGroupNameImage.setVisible(true);
+        OpenSesameUI.newGroupNameTextField.setVisible(true);
+
+        OpenSesameUI.Platform1Image.setVisible(true);
+        OpenSesameUI.Platform1TextField.setVisible(true);
+
+        OpenSesameUI.Platform2Image.setVisible(true);
+        OpenSesameUI.Platform2TextField.setVisible(true);
+
+        OpenSesameUI.Username1TextField.setVisible(true);
+        OpenSesameUI.Username1Image.setVisible(true);
+
+        OpenSesameUI.Username2TextField.setVisible(true);
+        OpenSesameUI.Username2Image.setVisible(true);
+
+
+        OpenSesameUI.password1TextField.setVisible(true);
+        OpenSesameUI.Password1Image.setVisible(true);
+
+        OpenSesameUI.password2TextField.setVisible(true);
+        OpenSesameUI.Password2Image.setVisible(true);
+
+        OpenSesameUI.createGroup.setVisible(true);
+        OpenSesameUI.createGroupLabel.setVisible(true);
+
     }
 
 
