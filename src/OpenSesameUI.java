@@ -75,6 +75,8 @@ public class OpenSesameUI {
     static JLabel Password2Image = new JLabel();
     static JButton createGroup = new JButton();
     static JLabel createGroupLabel =new JLabel("Create", SwingConstants.CENTER);
+    Platform [] group4Platforms = {new Platform("Walmart+", "SaveMore", new Password("password123")),
+            new Platform("ChickFilA", "BiscuitLover123", new Password("password123"))};
 
 
 
@@ -398,7 +400,7 @@ public class OpenSesameUI {
          group4Button.addActionListener(e -> {
 
              pleaseSelectGrooup.setVisible(false);
-
+            drawData(group4Platforms);
              currentGroupLabel.setText(group4Name);
          });
       
@@ -492,7 +494,7 @@ public class OpenSesameUI {
         newGroupNameImage.setBounds(75,190,200,50);
 
         newGroupNameTextField.setFont(new Font("OpenSans", Font.PLAIN,10));
-        newGroupNameTextField.setText("        Enter Group Name");
+        newGroupNameTextField.setText("      Enter Group Name");
         newGroupNameTextField.setBounds(82,196,200,40);
 
          newGroupNameTextField.setOpaque(false);
@@ -501,16 +503,16 @@ public class OpenSesameUI {
          newGroupNameTextField.addFocusListener(new FocusListener() {
              @Override
              public void focusGained(FocusEvent e) {
-                 if(newGroupNameTextField.getText().equals("        Enter Group Name")){
+                 if(newGroupNameTextField.getText().equals("      Enter Group Name")){
                      newGroupNameTextField.setText("");
                  }
              }
 
              @Override
              public void focusLost(FocusEvent e) {
-                 if(newGroupNameImage.getText().equals(""))
+                 if(newGroupNameTextField.getText().equals(""))
                  {
-                     newGroupNameTextField.setText("        Enter Group Name");
+                     newGroupNameTextField.setText("      Enter Group Name");
                  }
              }
          });
@@ -603,8 +605,17 @@ public class OpenSesameUI {
          createGroup.addActionListener(e->
          {
              group4JLabel.setText(newGroupNameTextField.getText());
-             Platform [] group4Platforms = {new Platform("Walmart+", "SaveMore", new Password("password123")),
-                     new Platform("ChickFilA", "BiscuitLover123", new Password("password123"))};
+            group4Platforms[0]= new Platform(Platform1TextField.getText(),Username1TextField.getText(),new Password("Password123"));
+            group4Platforms[1] = new Platform(Platform2TextField.getText(),Username2TextField.getText(), new Password("Password123"));
+            group4Name = newGroupNameTextField.getText();
+            group4Button.setVisible(true);
+            closeCreateaGroupMenu(); newGroupNameTextField.setText("");
+            Platform1TextField.setText(""); Username1TextField.setText("");
+            password1TextField.setText("");Platform2TextField.setText("");
+            Username2TextField.setText("");password2TextField.setText("");
+
+
+
 
          });
 
