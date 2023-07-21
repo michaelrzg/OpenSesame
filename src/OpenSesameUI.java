@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -75,22 +76,24 @@ public class OpenSesameUI {
     static JLabel Password2Image = new JLabel();
     static JButton createGroup = new JButton();
     static JLabel createGroupLabel =new JLabel("Create", SwingConstants.CENTER);
+    static JButton cogButton = new JButton();
+
     Platform [] group4Platforms = {new Platform("Walmart+", "SaveMore", new Password("password123")),
-            new Platform("ChickFilA", "BiscuitLover123", new Password("password123"))};
+            new Platform("ChickFilA", "BiscuitLover123", new Password(""))};
 
 
 
-    Platform [] group1Platforms = {new Platform("Netflix","timmy2001", new Password("password123"))
-            ,new Platform("Hulu","EddyRichtofen",new Password("password123")),
-             new Platform("Spotify", "TankDempsey",new Password("password123"))};
+    Platform [] group1Platforms = {new Platform("Netflix","timmy2001", new Password("Password123"))
+            ,new Platform("Hulu","EddyRichtofen",new Password("p123t456")),
+             new Platform("Spotify", "TankDempsey",new Password("3x0V3RT11"))};
 
-    Platform [] group2Platforms = {new Platform("Apple Music", "TakeoMasaki",new Password("password123")),
-            new Platform("HBO Max", "NiclolaiBelinski",new Password("password123")),
-            new Platform("SoundCloud", "DrGroph123",new Password("password123")),
-            new Platform("Youtube Music", "LudwigMaxis", new Password("password123"))};
+    Platform [] group2Platforms = {new Platform("Apple Music", "TakeoMasaki",new Password("Special%$@@$#")),
+            new Platform("HBO Max", "NiclolaiBelinski",new Password("Characters!(*$)#^&")),
+            new Platform("SoundCloud", "DrGroph123",new Password("H3N5Yn(234")),
+            new Platform("Youtube Music", "LudwigMaxis", new Password("SecurePassword"))};
     Platform [] group3Platforms = {new Platform("Instagram", "SamanthaMaxis", new Password("password123")),
-            new Platform("Snapchat", "PeteMccain", new Password("password123")),
-            new Platform("Twitter", "theShadowMan",new Password("password123"))};
+            new Platform("Snapchat", "PeteMccain", new Password("yelson123")),
+            new Platform("Twitter", "theShadowMan",new Password("Boris321"))};
 
 
     JLabel [][] slots = {
@@ -141,7 +144,7 @@ public class OpenSesameUI {
         loginButton.setFocusPainted(false);
         loginButton.addActionListener(e->
         {
-            System.out.println("Login Button Pressed");
+            //System.out.println("Login Button Pressed");
             //System.out.println(checkCredentials(usernameField.getText(),passwordField.getPassword()));
            // System.out.println(usernameField.getText());
            // System.out.println(Arrays.toString(passwordField.getPassword()));
@@ -250,6 +253,7 @@ public class OpenSesameUI {
         createGroup.setVisible(false);
         createGroupLabel.setVisible(false);
         AddGroupsButton2.setVisible(true);
+        cogButton.setVisible(true);
 
     }
 
@@ -273,6 +277,7 @@ public class OpenSesameUI {
          password1TextField.setVisible(false);
          createGroup.setVisible(false);
          createGroupLabel.setVisible(false);
+         cogButton.setVisible(false);
 
         frame.setSize(1280,760);
         frame.setLocationRelativeTo(null);
@@ -326,7 +331,9 @@ public class OpenSesameUI {
         AddGroupsButton.setBorderPainted(false);
         AddGroupsButton.addActionListener(e->
         {
-            System.out.println("addGroups Pressed");
+
+
+            //System.out.println("addGroups Pressed");
             CreateNewGroupOpenAnimation();
         });
 
@@ -414,12 +421,12 @@ public class OpenSesameUI {
          slots[0][0].setFont(derivedOpenSansFontBold);
          //slots[0][0].setText("Test");
 
-         slots[0][1].setBounds(700,192,200,42);
+         slots[0][1].setBounds(685,192,200,42);
          slots[0][1].setVisible(true);
          slots[0][1].setFont(derivedOpenSansFontBold);
         // slots[0][1].setText("Test");
 
-         slots[0][2].setBounds(975,192,200,42);
+         slots[0][2].setBounds(950,192,200,42);
          slots[0][2].setVisible(true);
          slots[0][2].setFont(derivedOpenSansFontBold);
         // slots[0][2].setText("Test");
@@ -429,12 +436,12 @@ public class OpenSesameUI {
          slots[1][0].setFont(derivedOpenSansFontBold);
         // slots[1][0].setText("Test");
 
-         slots[1][1].setBounds(700,258,200,42);
+         slots[1][1].setBounds(685,258,200,42);
          slots[1][1].setVisible(true);
          slots[1][1].setFont(derivedOpenSansFontBold);
       //   slots[1][1].setText("Test");
 
-         slots[1][2].setBounds(975,258,200,42);
+         slots[1][2].setBounds(950,258,200,42);
          slots[1][2].setVisible(true);
          slots[1][2].setFont(derivedOpenSansFontBold);
        //  slots[1][2].setText("Test");
@@ -444,12 +451,12 @@ public class OpenSesameUI {
          slots[2][0].setFont(derivedOpenSansFontBold);
        //  slots[2][0].setText("Test");
 
-         slots[2][1].setBounds(700,324,200,42);
+         slots[2][1].setBounds(685,324,200,42);
          slots[2][1].setVisible(true);
          slots[2][1].setFont(derivedOpenSansFontBold);
         // slots[2][1].setText("Test");
 
-         slots[2][2].setBounds(975,324,200,42);
+         slots[2][2].setBounds(950,324,200,42);
          slots[2][2].setVisible(true);
          slots[2][2].setFont(derivedOpenSansFontBold);
        //  slots[2][2].setText("Test");
@@ -459,12 +466,12 @@ public class OpenSesameUI {
          slots[3][0].setFont(derivedOpenSansFontBold);
        //  slots[3][0].setText("Test");
 
-         slots[3][1].setBounds(700,390,200,42);
+         slots[3][1].setBounds(685,390,200,42);
          slots[3][1].setVisible(true);
          slots[3][1].setFont(derivedOpenSansFontBold);
       //   slots[3][1].setText("Test");
 
-         slots[3][2].setBounds(975,390,200,42);
+         slots[3][2].setBounds(950,390,200,42);
          slots[3][2].setVisible(true);
          slots[3][2].setFont(derivedOpenSansFontBold);
        //  slots[3][2].setText("Test");
@@ -603,11 +610,33 @@ public class OpenSesameUI {
          createGroup.setContentAreaFilled(false);
          createGroup.setFocusPainted(false);
          createGroup.addActionListener(e->
-         {
+         {  StringBuilder ps1 = new StringBuilder();
+             for(int i=0;i<password1TextField.getPassword().length;i++)
+             {
+                 ps1.append(password1TextField.getPassword()[i]);
+                 //System.out.println(ps1);
+             }
+             StringBuilder ps2 = new StringBuilder();
+             for(int i=0;i<password2TextField.getPassword().length;i++)
+             {
+                 ps2.append(password2TextField.getPassword()[i]);
+                 //System.out.println(ps2);
+             }
+
              group4JLabel.setText(newGroupNameTextField.getText());
-            group4Platforms[0]= new Platform(Platform1TextField.getText(),Username1TextField.getText(),new Password("Password123"));
-            group4Platforms[1] = new Platform(Platform2TextField.getText(),Username2TextField.getText(), new Password("Password123"));
-            group4Name = newGroupNameTextField.getText();
+             try {
+                 group4Platforms[0]= new Platform(Platform1TextField.getText(),Username1TextField.getText(),new Password(ps1.toString()));
+             } catch (IOException ex) {
+                 throw new RuntimeException(ex);
+             }
+             try {
+                 group4Platforms[1] = new Platform(Platform2TextField.getText(),Username2TextField.getText(), new Password(ps2.toString()));
+             } catch (FileNotFoundException ex) {
+                 throw new RuntimeException(ex);
+             } catch (IOException ex) {
+                 throw new RuntimeException(ex);
+             }
+             group4Name = newGroupNameTextField.getText();
             group4Button.setVisible(true);
             closeCreateaGroupMenu(); newGroupNameTextField.setText("");
             Platform1TextField.setText(""); Username1TextField.setText("");
@@ -715,6 +744,14 @@ public class OpenSesameUI {
              closeCreateaGroupMenu();
          });
 
+         cogButton.setBounds(1180,60,32,32);
+         cogButton.setOpaque(false);
+         cogButton.setContentAreaFilled(false);
+         cogButton.setBorder(BorderFactory.createEmptyBorder());
+         cogButton.setFocusPainted(false);
+         cogButton.setVisible(false);
+         cogButton.setIcon(new ImageIcon("res/cog.png"));
+
 
 
 
@@ -766,6 +803,7 @@ public class OpenSesameUI {
 
     void initializePanel() throws InterruptedException {
         panel.add(AddGroupsButton2);
+        panel.add(cogButton);
         panel.add(createGroupLabel);
         panel.add(exitButton);
         panel.add(createGroup);

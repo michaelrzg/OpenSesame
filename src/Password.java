@@ -1,31 +1,41 @@
+import java.io.*;
 import java.util.Random;
 
 public class Password {
     public String encryptedPass;
     public int encryptMethodID;
+    protected int pointer = 3;
+    static int counter =0;
+
+    PrintWriter pw = new PrintWriter(new FileWriter("src/UserData.Txt",true));
 
     //PASSWORDS CAN NOT INCLUDE '#' ',' or '&' symbols in sequence.
-    Password(String originalPass)
-    {   Random rand = new Random();
-        encryptMethodID = rand.nextInt(3);
-        switch (encryptMethodID)
+    Password(String originalPass) throws IOException {   Random rand = new Random();
+
+        encryptMethodID  = rand.nextInt(3);
+
+
+        switch (pointer)
         {
             case 0:
-                encryptedPass = encryptMethod2(originalPass);
+                encryptedPass = encryptMethod0(originalPass);
                 break;
             case 1:
-                encryptedPass = encryptMethod2(originalPass);
+                encryptedPass = encryptMethod1(originalPass);
                 break;
             case 2: encryptedPass = encryptMethod2(originalPass);
                 break;
-
+            case 3: encryptedPass = encryptMethod4(originalPass);
+                break;
         }
-
+        pw.append(counter+"," + encryptMethod2(encryptedPass) + "\n");
+        pw.flush();
+        counter++;
          
 
     }
 
-    Password(){};
+    Password() throws IOException {};
 
     private String encryptMethod0(String originalPass)
     {  int index;
@@ -129,24 +139,35 @@ public class Password {
 
         return returnable;
     }
+    private String encryptMethod4(String pass)
+    {
+        return pass;
+
+    }
+    private String decryptMethod4(String pass)
+    {
+        return pass;
+    }
 
     public String decryptPassword(String encryptedPass)
     {
-        switch(encryptMethodID)
+        switch(pointer)
         {
-            case 0: return decryptMethod2(encryptedPass);
-            case 1: return decryptMethod2(encryptedPass);
+            case 0: return decryptMethod0(encryptedPass);
+            case 1: return decryptMethod1(encryptedPass);
             case 2 : return decryptMethod2(encryptedPass);
+            case 3 : return decryptMethod4(encryptedPass);
         }
         return null;
     }
     public String decryptPassword()
     {
-        switch(encryptMethodID)
+        switch(pointer)
         {
-            case 0: return decryptMethod2(encryptedPass);
-            case 1: return decryptMethod2(encryptedPass);
+            case 0: return decryptMethod0(encryptedPass);
+            case 1: return decryptMethod1(encryptedPass);
             case 2 : return decryptMethod2(encryptedPass);
+            case 3 : return decryptMethod4(encryptedPass);
         }
         return null;
     }

@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -29,7 +30,7 @@ public class PasswordManager
 
         }
         }
-     catch (FileNotFoundException e)
+     catch (IOException e)
         {
         e.printStackTrace();
         }
