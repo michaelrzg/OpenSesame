@@ -29,8 +29,8 @@ public class OpenSesameUI {
 
      static JButton group1Button = new JButton();
      static String group1Name =  "The Boys";
-     static String group2Name = "The Belligerents";
-     static String group3Name = "Casamigos";
+     static String group2Name = "Casa Amigos";
+     static String group3Name = "Family+";
      static String group4Name = "";
      static JLabel group1Label = new JLabel(group1Name,SwingConstants.CENTER);
       static JButton gruop2Button = new JButton();
@@ -849,9 +849,6 @@ public class OpenSesameUI {
 
         }
         panel.add(pleaseSelectGrooup);
-        //panel.add(OpenSesameIcon);
-        //panel.add(groupsBackground);
-       // panel.add(bar);
         panel.add(todos);
 
     }
