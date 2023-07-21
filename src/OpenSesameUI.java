@@ -472,7 +472,7 @@ public class OpenSesameUI {
          pleaseSelectGrooup.setBounds(650,350,300,42);
          pleaseSelectGrooup.setFont(derivedOpenSansFontBold);
 
-         currentGroupLabel.setBounds(650,45,200,42);
+         currentGroupLabel.setBounds(650,45,250,42);
          currentGroupLabel.setFont(new Font("OpenSans", Font.BOLD,30));
 
          createNewGroupContainer.setBounds(52,103,400,620);
