@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="OpenSesame:jar">
+    <output-path>$PROJECT_DIR$/../../a</output-path>
+    <root id="archive" name="OpenSesame.jar">
+      <element id="module-output" name="OpenSesame" />
+      <element id="module-output" name="res" />
+    </root>
+  </artifact>
+</component>

@@ -76,6 +76,8 @@ public class OpenSesameUI {
     static JLabel Password2Image = new JLabel();
     static JButton createGroup = new JButton();
     static JLabel createGroupLabel =new JLabel("Create", SwingConstants.CENTER);
+    static JButton addPeopleToGroup = new JButton();
+    static JLabel addPeopleToGroupLabel =new JLabel("Create", SwingConstants.CENTER);
     static JButton cogButton = new JButton();
 
     Platform [] group4Platforms = {new Platform("Walmart+", "SaveMore", new Password("password123")),
@@ -252,6 +254,8 @@ public class OpenSesameUI {
         password1TextField.setVisible(false);
         createGroup.setVisible(false);
         createGroupLabel.setVisible(false);
+        addPeopleToGroup.setVisible(false);
+        addPeopleToGroupLabel.setVisible(false);
         AddGroupsButton2.setVisible(true);
         cogButton.setVisible(true);
 
@@ -277,6 +281,8 @@ public class OpenSesameUI {
          password1TextField.setVisible(false);
          createGroup.setVisible(false);
          createGroupLabel.setVisible(false);
+         addPeopleToGroupLabel.setVisible(false);
+         addPeopleToGroup.setVisible(false);
          cogButton.setVisible(false);
 
         frame.setSize(1280,760);
@@ -602,6 +608,12 @@ public class OpenSesameUI {
 
              }
          });
+         addPeopleToGroup.setIcon(new ImageIcon("res/addFriends.png"));
+         addPeopleToGroup.setBounds(75,520,200,50);
+         addPeopleToGroup.setOpaque(false);
+         addPeopleToGroup.setBorder(BorderFactory.createEmptyBorder());
+         addPeopleToGroup.setContentAreaFilled(false);
+         addPeopleToGroup.setFocusPainted(false);
 
          createGroup.setIcon(new ImageIcon("res/createButton.png"));
          createGroup.setBounds(75,570,200,50);
@@ -798,6 +810,9 @@ public class OpenSesameUI {
 
         OpenSesameUI.createGroup.setVisible(false);
         OpenSesameUI.createGroupLabel.setVisible(false);
+
+        OpenSesameUI.addPeopleToGroup.setVisible(false);
+        OpenSesameUI.addPeopleToGroup.setVisible(false);
         exitButton.setVisible(false);
     }
 
@@ -805,6 +820,8 @@ public class OpenSesameUI {
         panel.add(AddGroupsButton2);
         panel.add(cogButton);
         panel.add(createGroupLabel);
+        panel.add(addPeopleToGroup);
+        panel.add(addPeopleToGroupLabel);
         panel.add(exitButton);
         panel.add(createGroup);
         panel.add(Platform1TextField);
@@ -899,6 +916,9 @@ public class OpenSesameUI {
 
         OpenSesameUI.createGroup.setVisible(true);
         OpenSesameUI.createGroupLabel.setVisible(true);
+
+        OpenSesameUI.addPeopleToGroup.setVisible(true);
+        OpenSesameUI.addPeopleToGroupLabel.setVisible(true);
 
         exitButton.setVisible(true);
 
