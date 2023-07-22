@@ -5,7 +5,8 @@ Its intended audience is families and close friends to share passwords with each
 Due to the short timeframe, information will be stored locally. Ideally, it would be exported to a server.
 
 
-To Run OpenSesame:
+To Run OpenSesame: 
+
 Option 1: 
 1. Download the Project and Upload it to an IDE
 2. Ensure you have a recent version of JDK Installed on your PC
